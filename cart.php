@@ -1,3 +1,5 @@
+<!--Sakib-->
+
 <?php include('SimplyBuyServer.php');  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +19,7 @@
         <div class="Container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
+                    <a href="home.php"><img src="Images/Logo.png" width="300px"></a>
                 </div>
                 <nav>
                     <ul>
@@ -54,7 +56,7 @@
 
     ?>
 
-    <div class="samll-container cart-page">
+<div class="samll-container cart-page">
         <table>
             <tr>
                 <th>Product</th>
@@ -87,7 +89,9 @@
                                     echo $row['Price'];
                                 ?>
                             </small>
-                            <a href="">Remove</a>
+                            <form method="post" action="cart.php">
+                                <button type="submit" name="removeProduct" class="removebutton">Remove</button>
+                            </form>
                         </div>
                     </div>
                 </td>
@@ -185,3 +189,17 @@
 </body>
 
 </html>
+
+<?php
+
+        if($resultCheck>0){
+            while ($row = mysqli_fetch_assoc($result)){
+
+                if(isset($_POST['removeProduct'])){
+                    $removeProductID = $row['ProductID'];
+                    $remove_sql = "DELETE FROM cart WHERE cart.CartProductID = /*...How to add $removeProductID...*/";
+                    mysqli_query($db,$remove_sql);
+                }
+            }
+        }
+?>

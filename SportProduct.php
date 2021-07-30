@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SimpLyBuy ~ Health Care Products</title>
+    <title>SimpLyBuy ~ Sports Accessories</title>
 
     <link rel="stylesheet" href="StyleSheet.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
@@ -45,7 +45,7 @@
 
 
         <div class="row row-2">
-            <h2>Health Care Products</h2>
+            <h2>Sports Accessories</h2>
             <select>
                 <option>Default Shorting</option>
                 <option>Short by price</option>

@@ -1,1 +1,2 @@
-# SimpLyBuy--Dev
+# SimplyBuy
+E-Commerce Website Project

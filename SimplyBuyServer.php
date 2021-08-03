@@ -8,7 +8,7 @@
 	$pass2 ="";
 	$errors =array();
 
-	$db = mysqli_connect('localhost','root', '', 'registration');
+	$db = mysqli_connect('localhost','root', '', 'registration'); 
 	if(mysqli_connect_errno()){
 		echo 'could not connect to server.';
 	}

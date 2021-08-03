@@ -1,6 +1,6 @@
 <!--Sakib-->
 
-<?php include('SimplyBuyServer.php');?>
+<?php include('SimplyBuyServer.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,47 +84,47 @@
     </div>
 
     <div class="SmallContainer">
-		<h2 class="Title">Related Products</h2>
+        <h2 class="Title">Related Products</h2>
 
-		<div class="ThreeColumnRow">
-			<div class="ThreeColumn">
-				<img src="Images/DemoProductImage.jpg">
-				<h4>DemoName</h4>
-				<div class="rating">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
-				</div>
-				<p>৳ 00.00</p>
-			</div>
-			<div class="ThreeColumn">
-				<img src="Images/DemoProductImage.jpg">
-				<h4>DemoName</h4>
-				<div class="rating">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
-				</div>
-				<p>৳ 00.00</p>
-			</div>
-			<div class="ThreeColumn">
-				<img src="Images/DemoProductImage.jpg">
-				<h4>DemoName</h4>
-				<div class="rating">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
-				</div>
-				<p>৳ 00.00</p>
-			</div>
-		</div>
-	</div>
+        <div class="ThreeColumnRow">
+            <div class="ThreeColumn">
+                <img src="Images/DemoProductImage.jpg">
+                <h4>DemoName</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>৳ 00.00</p>
+            </div>
+            <div class="ThreeColumn">
+                <img src="Images/DemoProductImage.jpg">
+                <h4>DemoName</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>৳ 00.00</p>
+            </div>
+            <div class="ThreeColumn">
+                <img src="Images/DemoProductImage.jpg">
+                <h4>DemoName</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>৳ 00.00</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
 
@@ -159,4 +159,5 @@
     </div>
 
 </body>
+
 </html>

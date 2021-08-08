@@ -1,6 +1,6 @@
 <!--Sakib-->
 
-<?php include('SimplyBuyServer.php'); ?>
+<?php include('SimplyBuyServer.php');?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,48 +83,54 @@
         </div>
     </div>
 
-    <div class="SmallContainer">
-        <h2 class="Title">Related Products</h2>
+    <?php 
 
-        <div class="ThreeColumnRow">
-            <div class="ThreeColumn">
-                <img src="Images/DemoProductImage.jpg">
-                <h4>DemoName</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>৳ 00.00</p>
-            </div>
-            <div class="ThreeColumn">
-                <img src="Images/DemoProductImage.jpg">
-                <h4>DemoName</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>৳ 00.00</p>
-            </div>
-            <div class="ThreeColumn">
-                <img src="Images/DemoProductImage.jpg">
-                <h4>DemoName</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>৳ 00.00</p>
-            </div>
-        </div>
-    </div>
+        $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+        if(mysqli_connect_errno()){
+            echo 'could not connect to server.';
+        }
+
+        $currentCategory = 'Fashion'/*$row['Category']*/; //Will be Taken From Sakib's Code.
+        $sql = "SELECT * From product WHERE product.Category = '$currentCategory' ORDER BY Rating DESC;" ;
+        $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
+        $resultCheck = mysqli_num_rows($result);
+    ?>
+
+    <div class="SmallContainer">
+		<h2 class="Title">Related Products</h2>
+
+        <?php 
+
+            $count = 1;
+
+            if($resultCheck>0):
+            while ($row = mysqli_fetch_assoc($result)):
+        ?>
+
+		<div class="ThreeColumnRow">
+			<div class="ThreeColumn">
+				<?php echo "<img src = '{$row['img_dir']}'>"; ?>
+				<h4>
+                    <?php echo $row['ProductName'] ;?>            
+                </h4>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-half-o"></i>
+				</div>
+				<p><?php echo $row['Price'] ;?> </p>
+			</div>
+		</div>
+
+        <?php
+                endwhile;
+            endif;
+        ?>
+
+	</div>
+
 
     <!-- Footer -->
 
@@ -159,5 +165,4 @@
     </div>
 
 </body>
-
 </html>

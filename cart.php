@@ -1,6 +1,5 @@
-<!--Sakib-->
-
 <?php include('SimplyBuyServer.php');  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +18,7 @@
         <div class="Container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="home.php"><img src="Images/Logo.png" width="300px"></a>
+                    <img src="Images/Logo.png" width="300px">
                 </div>
                 <nav>
                     <ul>
@@ -49,14 +48,13 @@
     if(mysqli_connect_errno()){
         echo 'could not connect to server.';
     }
-
     $sql = "SELECT * From product,cart WHERE product.ProductID = cart.CartProductID;" ;
     $result = mysqli_query($dbCart,$sql);
     $resultCheck = mysqli_num_rows($result);
 
     ?>
 
-<div class="samll-container cart-page">
+    <div class="samll-container cart-page">
         <table>
             <tr>
                 <th>Product</th>
@@ -90,6 +88,7 @@
                                 ?>
                             </small>
                             <form method="post" action="cart.php">
+                                <?php $removeProductID = $row['ProductID'];?>
                                 <button type="submit" name="removeProduct" class="removebutton">Remove</button>
                             </form>
                         </div>
@@ -108,10 +107,13 @@
                     ?>
                 </td>
             </tr>
+
+
         <?php
             endwhile;
         endif;
         ?>
+
 
         </table>
 
@@ -151,7 +153,9 @@
     </div>
 
     <div>
-        <a href="" class ="Button">Checkout</a>
+        <form action="FinalPage.php" method="POST">
+            <button type="submit" class ="Button" name="checkout" >Checkout</button>
+        </form>
     </div>
 
     <!-- Footer -->
@@ -189,17 +193,3 @@
 </body>
 
 </html>
-
-<?php
-
-        if($resultCheck>0){
-            while ($row = mysqli_fetch_assoc($result)){
-
-                if(isset($_POST['removeProduct'])){
-                    $removeProductID = $row['ProductID'];
-                    $remove_sql = "DELETE FROM cart WHERE cart.CartProductID = /*...How to add $removeProductID...*/";
-                    mysqli_query($db,$remove_sql);
-                }
-            }
-        }
-?>

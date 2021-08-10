@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="StyleSheet.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +24,15 @@
                     <ul>
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php">Products</a></li>
-                        <li><a href="">Categories</a></li>
+                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="">Electronic Devices</a></li>
+                            <li><a href="">Home Appliences</a></li>
+                            <li><a href="">Fashion & Clothing</a></li>
+                            <li><a href="">Health Care</a></li>
+                            <li><a href="">Sports</a></li>
+                        </ul>
+                        </li>
                         <li><a href="cart.php">My Cart</a></li>
                         <li><a href="">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
@@ -98,7 +106,7 @@
 
     <div class="SmallContainer">
 		<h2 class="Title">Related Products</h2>
-
+        <div class="ThreeColumnRow">
         <?php 
 
             $count = 1;
@@ -106,8 +114,6 @@
             if($resultCheck>0):
             while ($row = mysqli_fetch_assoc($result)):
         ?>
-
-		<div class="ThreeColumnRow">
 			<div class="ThreeColumn">
 				<?php echo "<img src = '{$row['img_dir']}'>"; ?>
 				<h4>
@@ -120,14 +126,14 @@
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star-half-o"></i>
 				</div>
-				<p><?php echo $row['Price'] ;?> </p>
+				<p><?php echo 'Price: '.$row['Price'] ;?> </p>
 			</div>
-		</div>
 
         <?php
                 endwhile;
             endif;
         ?>
+        </div>
 
 	</div>
 

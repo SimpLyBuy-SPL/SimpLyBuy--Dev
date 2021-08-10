@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="StyleSheet.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
@@ -24,7 +24,17 @@
                     <ul>
                         <li><a href="home.php">Home</a></li>
                         <li><a href="">Products</a></li>
-                        <li><a href="">Categories</a></li>
+
+                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="">Electronic Devices</a></li>
+                            <li><a href="">Home Appliences</a></li>
+                            <li><a href="">Fashion & Clothing</a></li>
+                            <li><a href="">Health Care</a></li>
+                            <li><a href="">Sports</a></li>
+                        </ul>
+                        </li>
+
                         <li><a href="cart.php">My Cart</a></li>
                         <li><a href="">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>

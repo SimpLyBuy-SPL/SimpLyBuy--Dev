@@ -1,27 +1,67 @@
-/*Sakib*/
-
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-.navbar{
-	display: flex;
-	align-items: center;
-	padding: 20;
+.Dropdown{
+	width: 100%;
+	margin: 0 auto;
+	position: fixed;
 }
 nav{
-	flex: 1;
-	text-align: right;
+	height: 80px;
+	background: black;
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.logo{
+	padding: 5px 0 0 80px;
+	width: 280px;
+	height: 70px;
 }
 nav ul{
-	display: inline-block;
-	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	float: right;
+	margin-right: 30px;
 }
 nav ul li{
+	background: black ;
+	position: relative;
+	list-style: none;
 	display: inline-block;
-	margin-right: 20px;
 }
+nav ul li a{
+	display: block;
+	padding: 10px 10px 0 10px;
+	color:#abdbe3 ;
+	text-decoration: none;
+	line-height: 60px;
+	font-size: 20px;
+}
+nav ul li a:hover{
+	background: gray;
+}
+nav ul ul{
+	position: absolute;
+	top: 60px;
+	display: none;
+}
+nav ul li:hover > ul{
+	display: block;
+}
+nav ul ul li{
+	width: 150 px;
+	float: none;
+	display: list-item;
+	position: relative;
+}
+nav ul ul li a{
+	font-size: 15px;
+	display: inline-block ;
+	line-height: 30px;
+}
+
+
 a{
 	text-decoration: none;
 	color: #555;
@@ -42,49 +82,6 @@ p{
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
-
-.row{
-	height: 50px;
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
-.row-2{
-	justify-content: space-between;
-	margin: 100px auto 50px;
-}
-
-select{
-	border: 1px solid red;
-	padding: 5px;
-}
-
-select:focus{
-	outline: none;
-}
-
-.page-btn{
-	margin: 0 auto 60px;
-}
-
-.page-btn span{
-	display: inline-block;
-	border: 1px solid #ff523b;
-	margin-left: 10px;
-	width: 40px;
-	height: 40px;
-	text-align: center;
-	line-height: 40px;
-	cursor: pointer;
-}
-
-.page-btn span:hover{
-	background: #ff523b;
-	color:whitesmoke;
-}
-
 .TwinColumn{
 	flex-basis: 50%;
 	min-width: 300px;
@@ -98,18 +95,6 @@ select:focus{
 	line-height: 60px;
 	margin: 25px 0;
 }
-
-.CheckoutBtn{
-	text-align: center;
-	margin: auto;
-	display: flex;
-	display: grid;
-	padding-left: 70ch;
-	padding-right: 70ch;
-	font-size: 16px;
-	height: 1in;
-}
-
 .Button{
 	display:inline-block ;
 	background: #ff523b;
@@ -117,7 +102,7 @@ select:focus{
 	padding: 8px 30px;
 	margin: 30px 0;
 	border-radius: 30px;
-	transition:background 0.5;
+	transition:background 0.5s ;
 }
 .Button:hover{
 	background: #0000ff;
@@ -258,63 +243,3 @@ ul{
 .Copyright{
 	text-align: center;
 }
-
-/* Cart part */
-
-.cart-page{
-    margin: 80px 0;
-	padding-left: 10%;
-	padding-right: 10%;
-}
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.cart-info{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-th{
-    text-align: left;
-    padding : 5px;
-    color: white;
-    background-color: #ff523b;
-    font-weight: normal;
-}
-
-td{
-    padding: 10px 5px;
-}
-td input{
-    width: 40px;
-    height: 30px;
-    padding: 5px;
-}
-td a{
-    color: orangered;
-    font-size: 12px;
-}
-td img{
-    width: 80px;
-    height: 80px;
-    margin-right: 10px;
-}
-.total-price{
-    display: flex;
-    justify-content: flex-end;
-}
-.total-price table{
-    border-top: 3px solid #ff523b;
-    width: 100%;
-    max-width: 370px;
-}
-td:last-child{
-    text-align: right;
-}
-th:last-child{
-    text-align: right;
-}
-
-

@@ -1,6 +1,5 @@
-<!--Sakib-->
+<?php include('SimplyBuyServer.php');  ?>
 
-<?php include('SimplyBuyServer.php');?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +10,7 @@
     <link rel="stylesheet" href="StyleSheet.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -24,15 +24,17 @@
                     <ul>
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php">Products</a></li>
+
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>
-                            <li><a href="">Electronic Devices</a></li>
-                            <li><a href="">Home Appliences</a></li>
-                            <li><a href="">Fashion & Clothing</a></li>
-                            <li><a href="">Health Care</a></li>
-                            <li><a href="">Sports</a></li>
+                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+                            <li><a href="HomeApplience.php">Home Appliences</a></li>
+                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+                            <li><a href="MedicineProduct.php">Health Care</a></li>
+                            <li><a href="SportProduct.php">Sports</a></li>
                         </ul>
                         </li>
+
                         <li><a href="cart.php">My Cart</a></li>
                         <li><a href="">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
@@ -80,7 +82,7 @@
                     <option>Custom 3</option>
                 </select>
                 <input type="Number" value="1">
-                <a href="" class="Button">Add To Cart</a>
+                <a href="CartAddProduct.php?addCartID=4&addCartCount=2" class="Button">Add To Cart</a>
 
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
@@ -120,11 +122,29 @@
                     <?php echo $row['ProductName'] ;?>            
                 </h4>
 				<div class="rating">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-half-o"></i>
+					<?php
+                        $rating = $row['Rating'];
+                        ?>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <?php
+                            
+                            if($rating == 5):
+                        ?>
+                        <i class="fa fa-star"></i>
+                        <?php
+                            elseif($rating == 4.5):
+                        ?>
+                        <i class="fa fa-star-half-o"></i>
+                        <?php
+                            else :
+                        ?>
+                        <i class="fa fa-star-o"></i>
+                        <?php
+                            endif;
+                        ?>
 				</div>
 				<p><?php echo 'Price: '.$row['Price'] ;?> </p>
 			</div>

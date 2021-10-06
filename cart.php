@@ -97,10 +97,7 @@
                                     echo $row['Price'];
                                 ?>
                             </small>
-                            <form method="post" action="cart.php">
-                                <?php $removeProductID = $row['ProductID'];?>
-                                <button type="submit" name="removeProduct" class="removebutton">Remove</button>
-                            </form>
+                            <button name="removeProduct" class="removebutton"><a href="CartRemoveProduct.php?deleteID=<?php echo $row['ProductID']; ?>">Remove</button>
                         </div>
                     </div>
                 </td>

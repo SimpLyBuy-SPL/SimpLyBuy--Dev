@@ -38,7 +38,12 @@
 						</ul>
 					</li>
 
-					<li><a href="cart.php">My Cart</a></li>
+					<li><a href="cart.php?user=<?php
+                                if (isset($_SESSION["username"])){
+                                    echo $_SESSION["username"];
+                                }
+                            ?>
+                        ">My Cart</a></li>
 
 					<li><a href="#">About Us</a></li>
 					

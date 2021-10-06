@@ -1,5 +1,3 @@
-<!--Sakib-->
-
 <?php include('SimplyBuyServer.php');  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +16,19 @@
         <div class="Container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="home.php"><img src="Images/Logo.png" width="300px"></a>
+                    <img src="Images/Logo.png" width="300px">
                 </div>
                 <nav>
                     <ul>
                         <li><a href="home.php">Home</a></li>
                         <li><a href="">Products</a></li>
                         <li><a href="">Categories</a></li>
-                        <li><a href="cart.php">My Cart</a></li>
+                        <li><a href="cart.php?user=<?php
+                                if (isset($_SESSION["username"])){
+                                    echo $_SESSION["username"];
+                                }
+                            ?>
+                        ">My Cart</a></li>
                         <li><a href="">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
                             <li><a href="" style="color: blue">
@@ -49,7 +52,7 @@
             <select>
                 <option>Default Shorting</option>
                 <option>Short by price</option>
-                <option>Short alphabetically</option>
+                <option>Short by popularity</option>
                 <option>Short by rating</option>
                 <option>Short by sale</option>
             </select>

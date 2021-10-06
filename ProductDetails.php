@@ -35,7 +35,13 @@
                         </ul>
                         </li>
 
-                        <li><a href="cart.php">My Cart</a></li>
+                        <li><a href="cart.php?user=<?php
+                                if (isset($_SESSION["username"])){
+                                    echo $_SESSION["username"];
+                                }
+                            ?>
+                        ">My Cart</a></li>
+
                         <li><a href="">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
                             <li><a href="" style="color: blue">
@@ -82,7 +88,12 @@
                     <option>Custom 3</option>
                 </select>
                 <input type="Number" value="1">
-                <a href="CartAddProduct.php?addCartID=4&addCartCount=2" class="Button">Add To Cart</a>
+
+                <a href="CartAddProduct.php?user=<?php
+                if(isset($_SESSION["username"]))
+                echo $_SESSION["username"];
+            ?>&addCartID=4&addCartCount=2"
+                     class="Button">Add To Cart</a>
 
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>

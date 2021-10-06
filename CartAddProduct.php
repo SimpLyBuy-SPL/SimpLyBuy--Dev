@@ -11,13 +11,12 @@
 
 		$id = $_GET['addCartID'];
 		$count = $_GET['addCartCount'];
+		$user = $_GET['user'];
 
-		echo $id;
-		echo $count;
 
-		$sql = "INSERT INTO cart (CartProductID, CartQuantity) VALUES ($id, $count);" ;
+		$sql = "INSERT INTO cart (UserName, CartProductID, CartQuantity) VALUES ('$user', '$id', '$count');" ;
     	$result = mysqli_query($dbCart,$sql);
-    	header('location:cart.php');
+    	header("location:cart.php?user=$user");
 	}
 
 ?>

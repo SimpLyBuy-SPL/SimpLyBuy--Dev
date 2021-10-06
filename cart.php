@@ -35,7 +35,12 @@
                         </ul>
                         </li>
 
-                        <li><a href="cart.php">My Cart</a></li>
+                        <li><a href="cart.php?user=<?php
+                                if (isset($_SESSION["username"])){
+                                    echo $_SESSION["username"];
+                                }
+                            ?>
+                        ">My Cart</a></li>
                         <li><a href="">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
                             <li><a href="" style="color: blue">
@@ -52,15 +57,27 @@
     </div>
     </div>
 
+
     <?php
 
-    $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
-    if(mysqli_connect_errno()){
-        echo 'could not connect to server.';
+    if(!empty($_GET['user'])){
+
+        $user =  $_GET['user'];
+
+        $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+        if(mysqli_connect_errno()){
+            echo 'could not connect to server.';
+        }
+
+        $sql = "SELECT * From product,cart WHERE product.ProductID = cart.CartProductID AND cart.UserName = '$user';" ;
+        $result = mysqli_query($dbCart,$sql);
+        $resultCheck = mysqli_num_rows($result);
     }
-    $sql = "SELECT * From product,cart WHERE product.ProductID = cart.CartProductID;" ;
-    $result = mysqli_query($dbCart,$sql);
-    $resultCheck = mysqli_num_rows($result);
+
+    else{
+
+        $resultCheck = 0;
+    }
 
     ?>
 
@@ -115,11 +132,17 @@
                 </td>
             </tr>
 
+        <p>
+            <?php
+                endwhile;
 
-        <?php
-            endwhile;
-        endif;
-        ?>
+              else:
+                echo "Cart is Empty";
+
+             endif;
+            ?>
+        </p>
+        <br>
 
 
         </table>

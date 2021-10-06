@@ -23,15 +23,15 @@
                 <nav>
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="">Products</a></li>
+                        <li><a href="Products.php">Products</a></li>
 
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>
-                            <li><a href="">Electronic Devices</a></li>
-                            <li><a href="">Home Appliences</a></li>
-                            <li><a href="">Fashion & Clothing</a></li>
-                            <li><a href="">Health Care</a></li>
-                            <li><a href="">Sports</a></li>
+                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+                            <li><a href="HomeApplience.php">Home Appliences</a></li>
+                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+                            <li><a href="MedicineProduct.php">Health Care</a></li>
+                            <li><a href="SportProduct.php">Sports</a></li>
                         </ul>
                         </li>
 

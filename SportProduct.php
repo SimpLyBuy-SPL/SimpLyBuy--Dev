@@ -1,15 +1,15 @@
-<!--Sakib-->
-
 <?php include('SimplyBuyServer.php');  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>SimpLyBuy ~ Sports Accessories</title>
+    <title>SimplyBuy</title>
 
     <link rel="stylesheet" href="StyleSheet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
@@ -23,15 +23,25 @@
                 <nav>
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="">Products</a></li>
-                        <li><a href="">Categories</a></li>
+                        <li><a href="Products.php">Products</a></li>
+
+                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+                            <li><a href="HomeApplience.php">Home Appliences</a></li>
+                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+                            <li><a href="MedicineProduct.php">Health Care</a></li>
+                            <li><a href="SportProduct.php">Sports</a></li>
+                        </ul>
+                        </li>
+
                         <li><a href="cart.php">My Cart</a></li>
                         <li><a href="">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
                             <li><a href="" style="color: blue">
                                     <?php echo $_SESSION["username"]; ?></a>
                             </li>
-                            <li><a href="home.php?logout='1'style=" color">Log Out</a></li>
+                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
                         <?php else : ?>
                             <li><a href="Login.php">Login</a></li>
                         <?php endif ?>
@@ -39,6 +49,8 @@
                 </nav>
             </div>
         </div>
+    </div>
+    </div>
 
 
         <div class="SmallContainer">

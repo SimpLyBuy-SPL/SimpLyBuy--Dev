@@ -11,6 +11,7 @@
 		$id = $_GET['deleteID'];
 		$sql = "delete From cart WHERE CartProductID = $id;" ;
     	$result = mysqli_query($dbCart,$sql);
+    	$user = $_SESSION["username"];
     	header("location:cart.php?user=$user");
 	}
 

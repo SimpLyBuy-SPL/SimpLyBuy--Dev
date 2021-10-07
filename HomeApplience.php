@@ -15,45 +15,45 @@
 
 <body>
     <div class="Body">
-        <div class="Container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+    <div class="Dropdown">
+			<nav>
+				<img class="logo" src="Images/Logo.png">
 
-                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                        <ul>
-                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.php">Home Appliences</a></li>
-                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-                            <li><a href="MedicineProduct.php">Health Care</a></li>
-                            <li><a href="SportProduct.php">Sports</a></li>
-                        </ul>
-                        </li>
+				<ul>
+					<li><a href="home.php">Home</a></li>
 
-                        <li><a href="cart.php?user=<?php
+					<li><a href="Products.php">Products</a></li>
+
+					<li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+						<ul>
+							<li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+							<li><a href="HomeApplience.php">Home Appliences</a></li>
+							<li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+							<li><a href="MedicineProduct.php">Health Care</a></li>
+							<li><a href="SportProduct.php">Sports</a></li>
+						</ul>
+					</li>
+
+					<li><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
                         ">My Cart</a></li>
-                        <li><a href="">About Us</a></li>
-                        <?php if (isset($_SESSION["username"])) : ?>
-                            <li><a href="" style="color: blue">
-                                    <?php echo $_SESSION["username"]; ?></a>
-                            </li>
-                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
-                        <?php else : ?>
-                            <li><a href="Login.php">Login</a></li>
-                        <?php endif ?>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+
+					<li><a href="#">About Us</a></li>
+					
+					<?php if(isset($_SESSION["username"])): ?>
+							<li><a href="" style="color: blue">
+							<?php echo $_SESSION["username"] ; ?></a>
+							</li>
+							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
+						<?php else: ?>
+							<li><a href="Login.php">Login</a></li>
+					<?php endif ?>
+				</ul>
+			</nav>
+		</div>
     </div>
     </div>
 
@@ -75,8 +75,8 @@
 
             <div class="ThreeColumnRow">
                 <div class="ThreeColumn">
-                    <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                    <a href="ProductDetails.php"><img src="Web/Gaming Armchair.jpg"></a>
+                    <h4>Bestway Mainframe Inflatable Gaming Armchair</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -84,11 +84,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 5000.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/DIsh Rack Over Sink.jpg"></a>
+                    <h4>Kitchen Dish Rack Over Sink – 2 Tier</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -96,11 +96,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 4000.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Spin Magic Mop.jpg"></a>
+                    <h4>360 squeeze spin magic mop</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -108,11 +108,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 3000.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Knife Non Stick.jpg"></a>
+                    <h4>Non Stick Coating Kitchen Knife Set</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -120,11 +120,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 950.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Wall Holder.jpg"></a>
+                    <h4>Multipurpose Wall Holder</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -132,11 +132,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 200.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Extension Tool long hand.jpg"></a>
+                    <h4>Hand Grabber Long Reach Arm Extension Tools</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -144,11 +144,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 590.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Wardrobe.jpg"></a>
+                    <h4>6 Cube Plastic Wardrobe</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -156,11 +156,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 3550.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Laptop Table.jpg"></a>
+                    <h4>Portable Study Laptop Table</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -168,11 +168,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1270.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Air Bed.jpg"></a>
+                    <h4>Bestway Double Large Inflatable Mattress Air Bed</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -180,7 +180,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 3550.00</p>
                 </div>
             </div>
             

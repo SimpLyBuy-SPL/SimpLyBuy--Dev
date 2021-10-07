@@ -15,45 +15,45 @@
 
 <body>
     <div class="Body">
-        <div class="Container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+    <div class="Dropdown">
+			<nav>
+				<img class="logo" src="Images/Logo.png">
 
-                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                        <ul>
-                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.php">Home Appliences</a></li>
-                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-                            <li><a href="MedicineProduct.php">Health Care</a></li>
-                            <li><a href="SportProduct.php">Sports</a></li>
-                        </ul>
-                        </li>
+				<ul>
+					<li><a href="home.php">Home</a></li>
 
-                        <li><a href="cart.php?user=<?php
+					<li><a href="Products.php">Products</a></li>
+
+					<li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+						<ul>
+							<li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+							<li><a href="HomeApplience.php">Home Appliences</a></li>
+							<li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+							<li><a href="MedicineProduct.php">Health Care</a></li>
+							<li><a href="SportProduct.php">Sports</a></li>
+						</ul>
+					</li>
+
+					<li><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
                         ">My Cart</a></li>
-                        <li><a href="">About Us</a></li>
-                        <?php if (isset($_SESSION["username"])) : ?>
-                            <li><a href="" style="color: blue">
-                                    <?php echo $_SESSION["username"]; ?></a>
-                            </li>
-                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
-                        <?php else : ?>
-                            <li><a href="Login.php">Login</a></li>
-                        <?php endif ?>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+
+					<li><a href="#">About Us</a></li>
+					
+					<?php if(isset($_SESSION["username"])): ?>
+							<li><a href="" style="color: blue">
+							<?php echo $_SESSION["username"] ; ?></a>
+							</li>
+							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
+						<?php else: ?>
+							<li><a href="Login.php">Login</a></li>
+					<?php endif ?>
+				</ul>
+			</nav>
+		</div>
     </div>
     </div>
 
@@ -75,8 +75,8 @@
 
             <div class="ThreeColumnRow">
                 <div class="ThreeColumn">
-                    <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                    <a href="ProductDetails.php"><img src="Web/Panjabi.jpg"></a>
+                    <h4>Mens Cotton Panjabi</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -84,11 +84,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1000.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Blazer.jpg"></a>
+                    <h4>Double Button Slim Fit Blazer for Men</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -96,11 +96,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 2250.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Jacket.jpg"></a>
+                    <h4>Premium Quality Jacket for Men</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -108,11 +108,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1850.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Western Coat Waistcoats.jpg"></a>
+                    <h4>Western Coat Waistcoats</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -120,11 +120,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 800.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Panjabi Paste.jpg"></a>
+                    <h4>Mens Cotton Panjabi</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -132,11 +132,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1000.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Kabli.jpg"></a>
+                    <h4>Mens Kabli Panjabi</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -144,11 +144,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1100.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Shirt Red.jpg"></a>
+                    <h4>Full Sleeve Cotton Shirt For Men</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -156,11 +156,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 900.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Shirt Check Check.jpg"></a>
+                    <h4>Full Sleeve Cotton Shirt For Men</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -168,11 +168,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 990.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Jacket Leather Red white.jpg"></a>
+                    <h4>Premium Quality Jacket For Men</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -180,7 +180,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1950.00</p>
                 </div>
             </div>
             

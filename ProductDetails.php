@@ -15,46 +15,45 @@
 
 <body>
     <div class="Body">
-        <div class="Container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+    <div class="Dropdown">
+			<nav class="header">
+				<img class="logo" src="Images/Logo.png">
 
-                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                        <ul>
-                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.php">Home Appliences</a></li>
-                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-                            <li><a href="MedicineProduct.php">Health Care</a></li>
-                            <li><a href="SportProduct.php">Sports</a></li>
-                        </ul>
-                        </li>
+				<ul>
+					<li><a href="home.php">Home</a></li>
 
-                        <li><a href="cart.php?user=<?php
+					<li><a href="Products.php">Products</a></li>
+
+					<li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+						<ul>
+							<li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+							<li><a href="HomeApplience.php">Home Appliences</a></li>
+							<li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+							<li><a href="MedicineProduct.php">Health Care</a></li>
+							<li><a href="SportProduct.php">Sports</a></li>
+						</ul>
+					</li>
+
+					<li><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
                         ">My Cart</a></li>
 
-                        <li><a href="">About Us</a></li>
-                        <?php if (isset($_SESSION["username"])) : ?>
-                            <li><a href="" style="color: blue">
-                                    <?php echo $_SESSION["username"]; ?></a>
-                            </li>
-                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
-                        <?php else : ?>
-                            <li><a href="Login.php">Login</a></li>
-                        <?php endif ?>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+					<li><a href="#">About Us</a></li>
+					
+					<?php if(isset($_SESSION["username"])): ?>
+							<li><a href="" style="color: blue">
+							<?php echo $_SESSION["username"] ; ?></a>
+							</li>
+							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
+						<?php else: ?>
+							<li><a href="Login.php">Login</a></li>
+					<?php endif ?>
+				</ul>
+			</nav>
+		</div>
     </div>
     </div>
 
@@ -82,7 +81,7 @@
     <div class="small-container single-product">
         <div class="Row">
             <div class="TwinColumn">
-                <?php echo "<img src = '{$row['img_dir']}' >"; ?>
+                <?php echo "<img src = '{$row['img_dir']}' width = 50% >"; ?>
 
                 <div class="small-img-row">
                     <div class="small-img-column">
@@ -108,6 +107,7 @@
                     <option>Custom 2</option>
                     <option>Custom 3</option>
                 </select>
+
                 <input type="Number" value="1">
 
                 <a href="CartAddProduct.php?user=<?php

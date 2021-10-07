@@ -15,45 +15,45 @@
 
 <body>
     <div class="Body">
-        <div class="Container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+    <div class="Dropdown">
+			<nav>
+				<img class="logo" src="Images/Logo.png">
 
-                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                        <ul>
-                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.php">Home Appliences</a></li>
-                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-                            <li><a href="MedicineProduct.php">Health Care</a></li>
-                            <li><a href="SportProduct.php">Sports</a></li>
-                        </ul>
-                        </li>
+				<ul>
+					<li><a href="home.php">Home</a></li>
 
-                        <li><a href="cart.php?user=<?php
+					<li><a href="Products.php">Products</a></li>
+
+					<li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+						<ul>
+							<li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+							<li><a href="HomeApplience.php">Home Appliences</a></li>
+							<li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+							<li><a href="MedicineProduct.php">Health Care</a></li>
+							<li><a href="SportProduct.php">Sports</a></li>
+						</ul>
+					</li>
+
+					<li><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
                         ">My Cart</a></li>
-                        <li><a href="">About Us</a></li>
-                        <?php if (isset($_SESSION["username"])) : ?>
-                            <li><a href="" style="color: blue">
-                                    <?php echo $_SESSION["username"]; ?></a>
-                            </li>
-                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
-                        <?php else : ?>
-                            <li><a href="Login.php">Login</a></li>
-                        <?php endif ?>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+
+					<li><a href="#">About Us</a></li>
+					
+					<?php if(isset($_SESSION["username"])): ?>
+							<li><a href="" style="color: blue">
+							<?php echo $_SESSION["username"] ; ?></a>
+							</li>
+							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
+						<?php else: ?>
+							<li><a href="Login.php">Login</a></li>
+					<?php endif ?>
+				</ul>
+			</nav>
+		</div>
     </div>
     </div>
 
@@ -75,8 +75,8 @@
 
             <div class="ThreeColumnRow">
                 <div class="ThreeColumn">
-                    <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                    <a href="ProductDetails.php"><img src="Web/BP Monitors.jpg"></a>
+                    <h4>Digital Blood Pressure Monitors</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -84,11 +84,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 2490.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Revoflex-Xtreme-Full-Body-Workout.jpg"></a>
+                    <h4>Revoflex Xtreme Abdominal Trainer</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -96,11 +96,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 850.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Slimming Belt.jpg"></a>
+                    <h4>Vibro Slimming Belt</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -108,11 +108,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 2300.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Compressor Nebulizer - China.jpg"></a>
+                    <h4>RX Care Compressor Nebulizer – China</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -120,11 +120,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1840.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Compressor Nebulizer - Italy.jpg"></a>
+                    <h4>Compressor Inhaler SuperEco Nebulizer – Italy</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -132,11 +132,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 2450.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Thermometer LCD Monitor.jpg"></a>
+                    <h4>Non-Contact Infrared LCD Monitor Infrared Thermometer</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -144,11 +144,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 2990.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Glucose Monitor.jpg"></a>
+                    <h4>Accu-Chek Active Glucose Monitor</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -156,11 +156,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 2395.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Fingertip Pulse Oximeter.jpg"></a>
+                    <h4>Portable Fingertip Pulse Oximeter With LED Display</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -168,11 +168,11 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 2400.00</p>
                 </div>
                 <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                <a href="ProductDetails.php"><img src="Web/Digital Weight Machine.jpg"></a>
+                    <h4>Digital Weight Machine</h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -180,7 +180,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p>৳ 1490.00</p>
                 </div>
             </div>
             

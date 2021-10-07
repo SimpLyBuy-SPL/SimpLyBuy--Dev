@@ -7,7 +7,7 @@
     <title>SimplyBuy</title>
 
     <link rel="stylesheet" href="StyleSheet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
@@ -59,115 +59,65 @@
         </div>
 
 
+        <?php 
+
+            $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+            if(mysqli_connect_errno()){
+                echo 'could not connect to server.';
+            }
+
+            $sql = "SELECT * From product;" ;
+            $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
+            $resultCheck = mysqli_num_rows($result);
+        ?>
+
             <div class="ThreeColumnRow">
+
+                <?php 
+
+                $count = 1;
+
+                if($resultCheck>0):
+                while ($row = mysqli_fetch_assoc($result)):
+                ?>
                 <div class="ThreeColumn">
-                    <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
+                    <?php echo "<img src = '{$row['img_dir']}'>"; ?>
+                    <h4>
+                        <?php echo $row['ProductName'] ;?>            
+                    </h4>
                     <div class="rating">
+                        <?php
+                            $rating = $row['Rating'];
+                        ?>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
+                        <?php
+                            
+                            if($rating == 5):
+                        ?>
+                        <i class="fa fa-star"></i>
+                        <?php
+                            elseif($rating == 4.5):
+                        ?>
                         <i class="fa fa-star-half-o"></i>
+                        <?php
+                            else :
+                        ?>
+                        <i class="fa fa-star-o"></i>
+                        <?php
+                            endif;
+                        ?>
                     </div>
-                    <p>৳ 00.00</p>
+                    <p><?php echo 'Price: '.$row['Price'] ;?> </p>
                 </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
+
+                <?php
+                        endwhile;
+                    endif;
+                ?>
+
             </div>
             
             <div class="page-btn">

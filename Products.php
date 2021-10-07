@@ -95,6 +95,7 @@
                 while ($row = mysqli_fetch_assoc($result)):
                 ?>
                 <div class="ThreeColumn">
+                    <a href="ProductDetails.php">
                     <?php echo "<img src = '{$row['img_dir']}'>"; ?>
                     <h4>
                         <?php echo $row['ProductName'] ;?>            

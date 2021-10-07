@@ -58,10 +58,31 @@
     </div>
     </div>
 
+    <?php 
+
+        if(isset($_GET['ProductID'])){
+            
+            $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+            if(mysqli_connect_errno()){
+                echo 'could not connect to server.';
+            }
+
+            $id = $_GET['ProductID'];
+
+            $sql = "SELECT * From product WHERE ProductID = '$id';" ;
+            $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
+
+            $row = mysqli_fetch_assoc($result);
+
+
+        }
+
+    ?>
+
     <div class="small-container single-product">
         <div class="Row">
             <div class="TwinColumn">
-                <img src="Images/DemoProductImage.jpg" width="50%" id="product">
+                <?php echo "<img src = '{$row['img_dir']}' >"; ?>
 
                 <div class="small-img-row">
                     <div class="small-img-column">
@@ -80,8 +101,8 @@
             </div>
             <div class="TwinColumn">
                 <p>Home / Product</p>
-                <h1>Product Name</h1>
-                <h4>&#2547;500.00</h4>
+                <h1><?php echo $row['ProductName']; ?></h1>
+                <h4>&#2547;<?php echo $row['Price']; ?></h4>
                 <select>
                     <option>Custom 1</option>
                     <option>Custom 2</option>
@@ -97,9 +118,7 @@
 
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Quidem natus optio sapiente eos exercitationem?
-                    Similique delectus non dignissimos laudantium tenetur!</p>
+                <p><?php echo $row['Details']; ?></p>
             </div>
         </div>
     </div>

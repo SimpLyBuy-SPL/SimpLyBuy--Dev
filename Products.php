@@ -57,7 +57,6 @@
     </div>
     </div>
 
-
         <div class="SmallContainer">
 
 
@@ -95,7 +94,7 @@
                 while ($row = mysqli_fetch_assoc($result)):
                 ?>
                 <div class="ThreeColumn">
-                    <a href="ProductDetails.php">
+                    <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
                     <?php echo "<img src = '{$row['img_dir']}'>"; ?>
                     <h4>
                         <?php echo $row['ProductName'] ;?>            

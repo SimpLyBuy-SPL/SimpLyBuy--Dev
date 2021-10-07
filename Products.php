@@ -15,7 +15,7 @@
 
 <body>
     <div class="Body">
-        <div class="Container">
+    <div class="Container">
             <div class="navbar">
                 <div class="logo">
                     <img src="Images/Logo.png" width="300px">
@@ -62,13 +62,16 @@
 
         <div class="row row-2">
             <h2>All Products</h2>
-            <select>
-                <option>Default Shorting</option>
-                <option>Short by price</option>
-                <option>Short by popularity</option>
-                <option>Short by rating</option>
-                <option>Short by sale</option>
-            </select>
+            <!-- <select name="forma" onchange="location = this.value">
+                <option value="Login.php">Default Sorting</option>
+                <option>Sort by price</option>    
+                <option>Sort by rating</option>
+            </select> -->
+            <ul>
+                <li><a href = "Products.php?sort=default">Default Sorting</a></li>
+                <li><a href = "Products.php?sort=price">Sort by price</a></li>
+                <li><a href = "Products.php?sort=rating">Sort by rating</a></li>
+            </ul>
         </div>
 
 
@@ -78,6 +81,10 @@
             if(mysqli_connect_errno()){
                 echo 'could not connect to server.';
             }
+
+            $sort = $_GET('sort'); 
+            echo $sort;
+
 
             $sql = "SELECT * From product;" ;
             $result = mysqli_query($dbCart,$sql) or die("Error in $sql");

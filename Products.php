@@ -23,7 +23,7 @@
                 <nav>
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+                        <li><a href="Products.php?sort=default">Products</a></li>
 
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>
@@ -82,11 +82,17 @@
                 echo 'could not connect to server.';
             }
 
-            $sort = $_GET('sort'); 
-            echo $sort;
+            $productSort = $_GET['sort'];
+            if($productSort=="default"){
+                $sql = "SELECT * From product;" ;
+            }
+            else if($productSort=="price"){
+                $sql = "SELECT * From product ORDER BY Price ASC;" ;
+            }
+            else if($productSort=="rating"){
+                $sql = "SELECT * From product ORDER BY Rating DESC;" ;
+            }
 
-
-            $sql = "SELECT * From product;" ;
             $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
             $resultCheck = mysqli_num_rows($result);
         ?>

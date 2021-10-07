@@ -23,7 +23,7 @@
                 <nav>
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+                        <li><a href="Products.php?sort=default">Products</a></li>
 
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>

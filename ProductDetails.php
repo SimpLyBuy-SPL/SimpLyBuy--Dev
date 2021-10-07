@@ -23,15 +23,15 @@
                 <nav>
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+                        <li><a href="Products.php?sort=default">Products</a></li>
 
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>
-                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.php">Home Appliences</a></li>
-                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-                            <li><a href="MedicineProduct.php">Health Care</a></li>
-                            <li><a href="SportProduct.php">Sports</a></li>
+                            <li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
+                            <li><a href="HomeApplience.php?sort=default">Home Appliences</a></li>
+                            <li><a href="FashionProduct.php?sort=default">Fashion & Clothing</a></li>
+                            <li><a href="MedicineProduct.php?sort=default">Health Care</a></li>
+                            <li><a href="SportProduct.php?sort=default">Sports</a></li>
                         </ul>
                         </li>
 
@@ -82,7 +82,7 @@
     <div class="small-container single-product">
         <div class="Row">
             <div class="TwinColumn">
-                <?php echo "<img src = '{$row['img_dir']}' >"; ?>
+                <?php echo "<img src = '{$row['img_dir']}' width = 50% >"; ?>
 
                 <div class="small-img-row">
                     <div class="small-img-column">

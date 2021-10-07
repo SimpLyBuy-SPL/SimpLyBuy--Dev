@@ -15,187 +15,151 @@
 
 <body>
     <div class="Body">
-    <div class="Dropdown">
-			<nav>
-				<img class="logo" src="Images/Logo.png">
+    <div class="Container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="Images/Logo.png" width="300px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="Products.php?sort=default">Products</a></li>
 
-				<ul>
-					<li><a href="home.php">Home</a></li>
+                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
+                            <li><a href="HomeApplience.php?sort=default">Home Appliences</a></li>
+                            <li><a href="FashionProduct.php?sort=default">Fashion & Clothing</a></li>
+                            <li><a href="MedicineProduct.php?sort=default">Health Care</a></li>
+                            <li><a href="SportProduct.php?sort=default">Sports</a></li>
+                        </ul>
+                        </li>
 
-					<li><a href="Products.php">Products</a></li>
-
-					<li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-						<ul>
-							<li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-							<li><a href="HomeApplience.php">Home Appliences</a></li>
-							<li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-							<li><a href="MedicineProduct.php">Health Care</a></li>
-							<li><a href="SportProduct.php">Sports</a></li>
-						</ul>
-					</li>
-
-					<li><a href="cart.php?user=<?php
+                        <li><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
                         ">My Cart</a></li>
-
-					<li><a href="#">About Us</a></li>
-					
-					<?php if(isset($_SESSION["username"])): ?>
-							<li><a href="" style="color: blue">
-							<?php echo $_SESSION["username"] ; ?></a>
-							</li>
-							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
-						<?php else: ?>
-							<li><a href="Login.php">Login</a></li>
-					<?php endif ?>
-				</ul>
-			</nav>
-		</div>
-    </div>
-    </div>
-
-
-        <div class="SmallContainer">
-
-
-        <div class="row row-2">
-            <h2>Health Care Products</h2>
-            <select>
-                <option>Default Shorting</option>
-                <option>Short by price</option>
-                <option>Short by popularity</option>
-                <option>Short by rating</option>
-                <option>Short by sale</option>
-            </select>
-        </div>
-
-
-            <div class="ThreeColumnRow">
-                <div class="ThreeColumn">
-                    <a href="ProductDetails.php"><img src="Web/BP Monitors.jpg"></a>
-                    <h4>Digital Blood Pressure Monitors</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 2490.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Revoflex-Xtreme-Full-Body-Workout.jpg"></a>
-                    <h4>Revoflex Xtreme Abdominal Trainer</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 850.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Slimming Belt.jpg"></a>
-                    <h4>Vibro Slimming Belt</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 2300.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Compressor Nebulizer - China.jpg"></a>
-                    <h4>RX Care Compressor Nebulizer – China</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 1840.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Compressor Nebulizer - Italy.jpg"></a>
-                    <h4>Compressor Inhaler SuperEco Nebulizer – Italy</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 2450.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Thermometer LCD Monitor.jpg"></a>
-                    <h4>Non-Contact Infrared LCD Monitor Infrared Thermometer</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 2990.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Glucose Monitor.jpg"></a>
-                    <h4>Accu-Chek Active Glucose Monitor</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 2395.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Fingertip Pulse Oximeter.jpg"></a>
-                    <h4>Portable Fingertip Pulse Oximeter With LED Display</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 2400.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Web/Digital Weight Machine.jpg"></a>
-                    <h4>Digital Weight Machine</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 1490.00</p>
-                </div>
+                        <li><a href="">About Us</a></li>
+                        <?php if (isset($_SESSION["username"])) : ?>
+                            <li><a href="" style="color: blue">
+                                    <?php echo $_SESSION["username"]; ?></a>
+                            </li>
+                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
+                        <?php else : ?>
+                            <li><a href="Login.php">Login</a></li>
+                        <?php endif ?>
+                    </ul>
+                </nav>
             </div>
+        </div>  
+    </div>
+    </div>
+
+
+    <div class="SmallContainer">
+
+
+<div class="row row-2">
+    <h2>Health Care Products</h2>
+    <!-- <select>
+        <option>Default Shorting</option>
+        <option>Short by price</option>
+        <option>Short by popularity</option>
+        <option>Short by rating</option>
+        <option>Short by sale</option>
+    </select> -->
+    <ul>
+        <li><a href="MedicineProduct.php?sort=default">Default Sorting</a></li>
+        <li><a href="MedicineProduct.php?sort=price">Sort by price</a></li>
+        <li><a href="MedicineProduct.php?sort=rating">Sort by rating</a></li>
+    </ul>
+</div>
+
+
+<?php 
+
+$dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+if(mysqli_connect_errno()){
+echo 'could not connect to server.';
+}
+
+$productSort = $_GET['sort'];
+if($productSort=="default"){
+$sql = "SELECT * From product WHERE Category = 'healthCare' ;" ;
+}
+else if($productSort=="price"){
+$sql = "SELECT * From product WHERE Category = 'healthCare' ORDER BY Price ASC;" ;
+}
+else if($productSort=="rating"){
+$sql = "SELECT * From product WHERE Category = 'healthCare' ORDER BY Rating DESC;" ;
+}
+
+$result = mysqli_query($dbCart,$sql) or die("Error in $sql");
+$resultCheck = mysqli_num_rows($result);
+?>
+
+<div class="ThreeColumnRow">
+
+<?php 
+
+$count = 1;
+
+if($resultCheck>0):
+while ($row = mysqli_fetch_assoc($result)):
+?>
+<div class="ThreeColumn">
+    <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
+    <?php echo "<img src = '{$row['img_dir']}'>"; ?>
+    <h4>
+        <?php echo $row['ProductName'] ;?>            
+    </h4>
+    <div class="rating">
+        <?php
+            $rating = $row['Rating'];
+        ?>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <?php
             
-            <div class="page-btn">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>&#8594;</span>
-            </div>
-
-        </div>
+            if($rating == 5):
+        ?>
+        <i class="fa fa-star"></i>
+        <?php
+            elseif($rating == 4.5):
+        ?>
+        <i class="fa fa-star-half-o"></i>
+        <?php
+            else :
+        ?>
+        <i class="fa fa-star-o"></i>
+        <?php
+            endif;
+        ?>
     </div>
+    <p><?php echo 'Price: '.$row['Price'] ;?> </p>
+</div>
 
+<?php
+        endwhile;
+    endif;
+?>
 
+</div>
+
+<div class="page-btn">
+<span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>&#8594;</span>
+</div>
+
+</div>
+</div>
     <!-- Footer -->
 
     <div class="Footer">

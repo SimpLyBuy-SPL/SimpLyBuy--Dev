@@ -15,7 +15,7 @@
 
 <body>
     <div class="Body">
-        <div class="Container">
+    <div class="Container">
             <div class="navbar">
                 <div class="logo">
                     <img src="Images/Logo.png" width="300px">
@@ -23,15 +23,15 @@
                 <nav>
                     <ul>
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="Products.php">Products</a></li>
+                        <li><a href="Products.php?sort=default">Products</a></li>
 
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>
-                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.php">Home Appliences</a></li>
-                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-                            <li><a href="MedicineProduct.php">Health Care</a></li>
-                            <li><a href="SportProduct.php">Sports</a></li>
+                        <li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
+							<li><a href="HomeApplience.php?sort=default">Home Appliences</a></li>
+							<li><a href="FashionProduct.php?sort=default">Fashion & Clothing</a></li>
+							<li><a href="MedicineProduct.php">Health Care</a></li>
+							<li><a href="SportProduct.php">Sports</a></li>
                         </ul>
                         </li>
 
@@ -55,147 +55,108 @@
             </div>
         </div>
     </div>
-    </div>
 
 
-        <div class="SmallContainer">
+    <div class="SmallContainer">
 
 
-        <div class="row row-2">
-            <h2>Electronic Products</h2>
-            <select>
-                <option>Default Shorting</option>
-                <option>Short by price</option>
-                <option>Short by popularity</option>
-                <option>Short by rating</option>
-                <option>Short by sale</option>
-            </select>
+<div class="row row-2">
+    <h2>Electronic Products</h2>
+    <!-- <select name="forma" onchange="location = this.value">
+        <option value="Login.php">Default Sorting</option>
+        <option>Sort by price</option>    
+        <option>Sort by rating</option>
+    </select> -->
+    <ul>
+        <li><a href = "ElectronicDevices.php?sort=default">Default Sorting</a></li>
+        <li><a href = "ElectronicDevices.php?sort=price">Sort by price</a></li>
+        <li><a href = "ElectronicDevices.php?sort=rating">Sort by rating</a></li>
+    </ul>
+</div>
+
+
+<?php 
+
+    $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+    if(mysqli_connect_errno()){
+        echo 'could not connect to server.';
+    }
+
+    $productSort = $_GET['sort'];
+    if($productSort=="default"){
+        $sql = "SELECT * From product WHERE Category = 'elctronicDevices' ;" ;
+    }
+    else if($productSort=="price"){
+        $sql = "SELECT * From product WHERE Category = 'elctronicDevices' ORDER BY Price ASC;" ;
+    }
+    else if($productSort=="rating"){
+        $sql = "SELECT * From product WHERE Category = 'elctronicDevices'    ORDER BY Rating DESC;" ;
+    }
+
+    $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
+    $resultCheck = mysqli_num_rows($result);
+?>
+
+    <div class="ThreeColumnRow">
+
+        <?php 
+
+        $count = 1;
+
+        if($resultCheck>0):
+        while ($row = mysqli_fetch_assoc($result)):
+        ?>
+        <div class="ThreeColumn">
+            <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
+            <?php echo "<img src = '{$row['img_dir']}'>"; ?>
+            <h4>
+                <?php echo $row['ProductName'] ;?>            
+            </h4>
+            <div class="rating">
+                <?php
+                    $rating = $row['Rating'];
+                ?>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <?php
+                    
+                    if($rating == 5):
+                ?>
+                <i class="fa fa-star"></i>
+                <?php
+                    elseif($rating == 4.5):
+                ?>
+                <i class="fa fa-star-half-o"></i>
+                <?php
+                    else :
+                ?>
+                <i class="fa fa-star-o"></i>
+                <?php
+                    endif;
+                ?>
+            </div>
+            <p><?php echo 'Price: '.$row['Price'] ;?> </p>
         </div>
 
+        <?php
+                endwhile;
+            endif;
+        ?>
 
-            <div class="ThreeColumnRow">
-                <div class="ThreeColumn">
-                    <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-                <div class="ThreeColumn">
-                <a href="ProductDetails.php"><img src="Images/DemoProductImage.jpg"></a>
-                    <h4>DemoName</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>৳ 00.00</p>
-                </div>
-            </div>
-            
-            <div class="page-btn">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>&#8594;</span>
-            </div>
-
-        </div>
+    </div>
+    
+    <div class="page-btn">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>&#8594;</span>
     </div>
 
-
+</div>
+</div>
     <!-- Footer -->
 
     <div class="Footer">

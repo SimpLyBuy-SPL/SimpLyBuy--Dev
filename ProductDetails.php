@@ -15,45 +15,46 @@
 
 <body>
     <div class="Body">
-    <div class="Dropdown">
-			<nav class="header">
-				<img class="logo" src="Images/Logo.png">
+        <div class="Container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="Images/Logo.png" width="300px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="Products.php">Products</a></li>
 
-				<ul>
-					<li><a href="home.php">Home</a></li>
+                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="ElectronicDevices.php">Electronic Devices</a></li>
+                            <li><a href="HomeApplience.php">Home Appliences</a></li>
+                            <li><a href="FashionProduct.php">Fashion & Clothing</a></li>
+                            <li><a href="MedicineProduct.php">Health Care</a></li>
+                            <li><a href="SportProduct.php">Sports</a></li>
+                        </ul>
+                        </li>
 
-					<li><a href="Products.php">Products</a></li>
-
-					<li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-						<ul>
-							<li><a href="ElectronicDevices.php">Electronic Devices</a></li>
-							<li><a href="HomeApplience.php">Home Appliences</a></li>
-							<li><a href="FashionProduct.php">Fashion & Clothing</a></li>
-							<li><a href="MedicineProduct.php">Health Care</a></li>
-							<li><a href="SportProduct.php">Sports</a></li>
-						</ul>
-					</li>
-
-					<li><a href="cart.php?user=<?php
+                        <li><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
                         ">My Cart</a></li>
 
-					<li><a href="#">About Us</a></li>
-					
-					<?php if(isset($_SESSION["username"])): ?>
-							<li><a href="" style="color: blue">
-							<?php echo $_SESSION["username"] ; ?></a>
-							</li>
-							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
-						<?php else: ?>
-							<li><a href="Login.php">Login</a></li>
-					<?php endif ?>
-				</ul>
-			</nav>
-		</div>
+                        <li><a href="">About Us</a></li>
+                        <?php if (isset($_SESSION["username"])) : ?>
+                            <li><a href="" style="color: blue">
+                                    <?php echo $_SESSION["username"]; ?></a>
+                            </li>
+                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
+                        <?php else : ?>
+                            <li><a href="Login.php">Login</a></li>
+                        <?php endif ?>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
     </div>
 
@@ -81,7 +82,7 @@
     <div class="small-container single-product">
         <div class="Row">
             <div class="TwinColumn">
-                <?php echo "<img src = '{$row['img_dir']}' width = 50% >"; ?>
+                <?php echo "<img src = '{$row['img_dir']}' >"; ?>
 
                 <div class="small-img-row">
                     <div class="small-img-column">
@@ -108,13 +109,16 @@
                     <option>Custom 3</option>
                 </select>
 
-                <input type="Number" value="1">
+                <br>
 
-                <a href="CartAddProduct.php?user=<?php
+                <form action="CartAddProduct.php?user=<?php
                 if(isset($_SESSION["username"]))
                 echo $_SESSION["username"];
-            ?>&addCartID=4&addCartCount=2"
-                     class="Button">Add To Cart</a>
+            ?>&addCartID=<?php echo $row['ProductID']; ?>" method="post">
+                    <input type="Number" min="1" value="1" name="count">
+                    <button type="submit">Add To Cart</button>
+                </form>
+
 
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
@@ -130,7 +134,7 @@
             echo 'could not connect to server.';
         }
 
-        $currentCategory = 'Fashion'/*$row['Category']*/; //Will be Taken From Sakib's Code.
+        $currentCategory = $row['Category'];
         $sql = "SELECT * From product WHERE product.Category = '$currentCategory' ORDER BY Rating DESC;" ;
         $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
         $resultCheck = mysqli_num_rows($result);

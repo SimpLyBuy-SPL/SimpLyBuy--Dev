@@ -2,7 +2,11 @@
 	
 	include('SimplyBuyServer.php');
 
-	if(isset($_GET['addCartID'])){
+	if(empty($_GET['user'])){
+		header('location:Login.php');
+	}
+
+	else if(isset($_GET['addCartID'])){
 
 		$dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
         if(mysqli_connect_errno()){
@@ -10,7 +14,7 @@
    		}
 
 		$id = $_GET['addCartID'];
-		$count = $_GET['addCartCount'];
+		$count = $_POST['count'];
 		$user = $_GET['user'];
 
 

@@ -42,9 +42,9 @@
                             ?>
                         ">My Cart</a></li>
 
-                        <li><a href="">About Us</a></li>
+                        <li><a href="#info">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
-                            <li><a href="" style="color: blue">
+                            <li><a href="UserProfile.php" style="color: blue">
                                     <?php echo $_SESSION["username"]; ?></a>
                             </li>
                             <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
@@ -141,7 +141,7 @@
     ?>
 
     <div class="SmallContainer">
-		<h2 class="Title">Related Products</h2>
+        <h2 class="Title">Related Products</h2>
         <div class="ThreeColumnRow">
         <?php 
 
@@ -150,13 +150,13 @@
             if($resultCheck>0):
             while ($row = mysqli_fetch_assoc($result)):
         ?>
-			<div class="ThreeColumn">
-				<?php echo "<img src = '{$row['img_dir']}'>"; ?>
-				<h4>
+            <div class="ThreeColumn">
+                <?php echo "<img src = '{$row['img_dir']}'>"; ?>
+                <h4>
                     <?php echo $row['ProductName'] ;?>            
                 </h4>
-				<div class="rating">
-					<?php
+                <div class="rating">
+                    <?php
                         $rating = $row['Rating'];
                         ?>
                         <i class="fa fa-star"></i>
@@ -179,9 +179,9 @@
                         <?php
                             endif;
                         ?>
-				</div>
-				<p><?php echo 'Price: '.$row['Price'] ;?> </p>
-			</div>
+                </div>
+                <p><?php echo 'Price: '.$row['Price'] ;?> </p>
+            </div>
 
         <?php
                 endwhile;
@@ -189,12 +189,12 @@
         ?>
         </div>
 
-	</div>
+    </div>
 
 
     <!-- Footer -->
 
-    <div class="Footer">
+    <div class="Footer" id="info">
         <div class="Container">
             <div class="Row">
                 <div class="FooterColumn">

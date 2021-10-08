@@ -43,7 +43,7 @@
                         ">My Cart</a></li>
                         <li><a href="#info">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
-                            <li><a href="" style="color: blue">
+                            <li><a href="UserProfile.php" style="color: blue">
                                     <?php echo $_SESSION["username"]; ?></a>
                             </li>
                             <li><a href="home.php?logout='1' style=" color">Log Out</a></li>

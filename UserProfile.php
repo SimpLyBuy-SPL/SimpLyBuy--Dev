@@ -118,6 +118,30 @@
                     <div style="height: 26px"></div>
                 </div>
             </div>
+
+            <div class= "col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>User Feedback</h3>
+                    </div>
+                    <br>
+                    <div class="card-body pt-0">
+                        <form method="post" action="AddReview.php">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th width="30%">Enter Feedback Or Suggestions</th>
+                                    <td width="2%">:</td>
+                                    <td><input maxlength="255" size="70" type="text" name="feedback" placeholder="Enter Text Here(Max 255)"></td>
+                                </tr>
+                            </table>
+                            <button>Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
         </div>
     </div>
 </body>

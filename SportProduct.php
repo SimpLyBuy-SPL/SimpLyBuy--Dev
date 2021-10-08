@@ -28,7 +28,7 @@
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>
                             <li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.ph?sort=defaultp">Home Appliences</a></li>
+                            <li><a href="HomeApplience.ph?sort=default">Home Appliences</a></li>
                             <li><a href="FashionProduct.php?sort=default">Fashion & Clothing</a></li>
                             <li><a href="MedicineProduct.php?sort=default">Health Care</a></li>
                             <li><a href="SportProduct.php?sort=default">Sports</a></li>
@@ -41,9 +41,9 @@
                                 }
                             ?>
                         ">My Cart</a></li>
-                        <li><a href="">About Us</a></li>
+                        <li><a href="#info">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
-                            <li><a href="" style="color: blue">
+                            <li><a href="UserProfile.php" style="color: blue">
                                     <?php echo $_SESSION["username"]; ?></a>
                             </li>
                             <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
@@ -124,18 +124,18 @@ while ($row = mysqli_fetch_assoc($result)):
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
         <?php
-            
-            if($rating == 5):
-        ?>
-        <i class="fa fa-star"></i>
-        <?php
-            elseif($rating == 4.5):
-        ?>
-        <i class="fa fa-star-half-o"></i>
-        <?php
-            else :
-        ?>
-        <i class="fa fa-star-o"></i>
+                    
+                if($rating > 4.5):
+                ?>
+                <i class="fa fa-star"></i>
+                <?php
+                    elseif($rating > 4.3):
+                ?>
+                <i class="fa fa-star-half-o"></i>
+                <?php
+                    else :
+                ?>
+                <i class="fa fa-star-o"></i>
         <?php
             endif;
         ?>
@@ -162,7 +162,7 @@ while ($row = mysqli_fetch_assoc($result)):
 </div>
     <!-- Footer -->
 
-    <div class="Footer">
+    <div class="Footer" id="info">
         <div class="Container">
             <div class="Row">
                 <div class="FooterColumn">

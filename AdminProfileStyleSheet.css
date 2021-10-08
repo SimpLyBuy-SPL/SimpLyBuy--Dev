@@ -1,7 +1,5 @@
 body {
-    background: #67B26F;
-    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);
-    background: linear-gradient(to right, #4ca2cd, #67B26F);
+    background: radial-gradient(#fff,#abdbe3);;
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;

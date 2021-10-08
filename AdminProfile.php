@@ -41,7 +41,7 @@
                     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius: 10px;">
                         <div class="container-fluid">
                             <a href="#" class="navbar-brand">
-                                <img src="Images/Logo.png" height="35px" alt="Simplybuy">
+                                <img src="Images/Logo.png" height="40px" alt="Simplybuy">
                             </a>
                             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                                 <span class="navbar-toggler-icon"></span>
@@ -63,18 +63,18 @@
 
             </html>
 
-    <?php
+            <?php
 
-        $dbCon = mysqli_connect('localhost','root', '', 'registration');
-        if(mysqli_connect_errno()){
-            echo 'could not connect to server.';
-        }
-        $name = $_SESSION["username"];
-        $sql = "SELECT * From admin WHERE Name = '$name';" ;
-        $result = mysqli_query($dbCon,$sql) or die("Error in $sql");
-        $row = mysqli_fetch_assoc($result);
+            $dbCon = mysqli_connect('localhost', 'root', '', 'registration');
+            if (mysqli_connect_errno()) {
+                echo 'could not connect to server.';
+            }
+            $name = $_SESSION["username"];
+            $sql = "SELECT * From admin WHERE Name = '$name';";
+            $result = mysqli_query($dbCon, $sql) or die("Error in $sql");
+            $row = mysqli_fetch_assoc($result);
 
-    ?>
+            ?>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card shadow-sm">
@@ -112,9 +112,52 @@
                                     <td><?php echo $row['Address']; ?></td>
                                 </tr>
                             </table>
+
                         </div>
                     </div>
                     <div style="height: 26px"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 offset-md-4 form-div">
+                        <div class="col-lg-30">
+                            <div class="card shadow-lg p-3 mb-10 bg-yellow rounded">
+                                <form action="AdminAddProduct.php" method="post" enctype="multipart/form-data">
+
+                                    <h3 class="text-center">Add Product</h3>
+
+                                    <div class="form-group">
+                                        <label for="profileImage">Product Image</label>
+                                        <input cols="43" type="file" name="profileImage" id="profileImage" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Category">Product Category</label>
+                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Quantity">Product Quantity</label>
+                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Price">Product Price</label>
+                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="img_dir">Image Directory</label>
+                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Details">Product Details</label>
+                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" name="register" class="btn btn-primary btn-block">ADD</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

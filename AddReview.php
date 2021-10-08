@@ -7,7 +7,7 @@
         echo 'could not connect to server.';
     }
     $name = $_SESSION["username"];
-    $sql = "UPDATE user SET Reveiw = '$feedback' WHERE UserName = '$name';" ;
+    $sql = "UPDATE user SET Review = '$feedback' WHERE UserName = '$name';" ;
     $result = mysqli_query($dbCon,$sql) or die("Error in $sql");
 
     header('location:UserProfile.php');

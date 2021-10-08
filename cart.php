@@ -41,7 +41,7 @@
                                 }
                             ?>
                         ">My Cart</a></li>
-                        <li><a href="">About Us</a></li>
+                        <li><a href="#info">About Us</a></li>
                         <?php if (isset($_SESSION["username"])) : ?>
                             <li><a href="UserProfile.php" style="color: blue">
                                     <?php echo $_SESSION["username"]; ?></a>
@@ -190,7 +190,7 @@
 
     <!-- Footer -->
 
-    <div class="Footer">
+    <div id="info" class="Footer">
         <div class="Container">
             <div class="Row">
                 <div class="FooterColumn">

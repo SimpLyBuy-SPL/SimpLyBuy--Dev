@@ -48,7 +48,7 @@
 					<li><a href="#">About Us</a></li>
 					
 					<?php if(isset($_SESSION["username"])): ?>
-							<li><a href="" style="color: blue">
+							<li><a href="UserProfile.php" style="color: blue">
 							<?php echo $_SESSION["username"] ; ?></a>
 							</li>
 							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
@@ -79,27 +79,27 @@
 			<div class="SmallContainer">
 				<div class="Row">
 					<div class="FiveColumn">
-						<a href="ElectronicDevices.php?sort=default">
+						<a href="ElectronicDevices.php">
 		         			<img src="Images/ElectronicDevice.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="HomeApplience.php?sort=default">
+						<a href="HomeApplience.php">
 		         			<img src="Images/HomeApplience.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="FashionProduct.php?sort=default">
+						<a href="FashionProduct.php">
 		         			<img src="Images/Fashion.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="MedicineProduct.php?sort=default">
+						<a href="MedicineProduct.php">
 		         			<img src="Images/HealthCare.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="SportProduct.php?sort=default">
+						<a href="SportProduct.php">
 		         			<img src="Images/Sports.jpg ">
 		     			</a>
 					</div>
@@ -133,38 +133,37 @@
 	            while ($row = mysqli_fetch_assoc($result)):
 	        	?>
 				<div class="ThreeColumn">
-                    <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
-                    <?php echo "<img src = '{$row['img_dir']}'>"; ?>
-                    <h4>
-                        <?php echo $row['ProductName'] ;?>            
-                    </h4>
-                    <div class="rating">
-                        <?php
-                            $rating = $row['Rating'];
-                        ?>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <?php
-                            
-                            if($rating == 5):
-                        ?>
-                        <i class="fa fa-star"></i>
-                        <?php
-                            elseif($rating == 4.5):
-                        ?>
-                        <i class="fa fa-star-half-o"></i>
-                        <?php
-                            else :
-                        ?>
-                        <i class="fa fa-star-o"></i>
-                        <?php
-                            endif;
-                        ?>
-                    </div>
-                    <p><?php echo 'Price: '.$row['Price'] ;?> </p>
-                </div>
+					<?php echo "<img src = '{$row['img_dir']}'>"; ?>
+					<h4>
+	                    <?php echo $row['ProductName'] ;?>            
+	                </h4>
+					<div class="rating">
+						<?php
+							$rating = $row['Rating'];
+						?>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<?php
+							
+							if($rating == 5):
+						?>
+						<i class="fa fa-star"></i>
+						<?php
+							elseif($rating == 4.5):
+						?>
+						<i class="fa fa-star-half-o"></i>
+						<?php
+							else :
+						?>
+						<i class="fa fa-star-o"></i>
+						<?php
+							endif;
+						?>
+					</div>
+					<p><?php echo 'Price: '.$row['Price'] ;?> </p>
+				</div>
 
 		        <?php
 		                endwhile;
@@ -195,39 +194,38 @@
             if($resultCheck>0):
             while ($row = mysqli_fetch_assoc($result)):
         	?>
-<div class="ThreeColumn">
-                    <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
-                    <?php echo "<img src = '{$row['img_dir']}'>"; ?>
-                    <h4>
-                        <?php echo $row['ProductName'] ;?>            
-                    </h4>
-                    <div class="rating">
-                        <?php
-                            $rating = $row['Rating'];
-                        ?>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <?php
-                            
-                            if($rating == 5):
-                        ?>
-                        <i class="fa fa-star"></i>
-                        <?php
-                            elseif($rating == 4.5):
-                        ?>
-                        <i class="fa fa-star-half-o"></i>
-                        <?php
-                            else :
-                        ?>
-                        <i class="fa fa-star-o"></i>
-                        <?php
-                            endif;
-                        ?>
-                    </div>
-                    <p><?php echo 'Price: '.$row['Price'] ;?> </p>
-                </div>
+			<div class="ThreeColumn">
+				<?php echo "<img src = '{$row['img_dir']}'>"; ?>
+				<h4>
+                    <?php echo $row['ProductName'] ;?>            
+                </h4>
+				<div class="rating">
+					<?php
+							$rating = $row['Rating'];
+						?>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<?php
+							
+							if($rating == 5):
+						?>
+						<i class="fa fa-star"></i>
+						<?php
+							elseif($rating == 4.5):
+						?>
+						<i class="fa fa-star-half-o"></i>
+						<?php
+							else :
+						?>
+						<i class="fa fa-star-o"></i>
+						<?php
+							endif;
+						?>
+				</div>
+				<p><?php echo 'Price: '.$row['Price'] ;?> </p>
+			</div>
 
 	        <?php
 	                endwhile;
@@ -310,6 +308,7 @@
 			<div class="Row">
 				<div class="FooterColumn">
 					<h3> Download Related Apps </h3>
+					<h3><a href="AdminLogin.php"> Login As An Admin</a> </h3>
 					<p>Download Apps for Android and ios for Mobile Phone</p>
 				</div>
 				<div class="FooterColumn">

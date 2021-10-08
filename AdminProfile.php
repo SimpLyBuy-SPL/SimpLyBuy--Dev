@@ -48,9 +48,9 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
-                                    <a href="home.php" class="nav-item nav-link active">Home</a>
-                                    <a href="AdminProfile.php" class="nav-item nav-link active">Add Products</a>
-                                    <a href="AdminProfile.php" class="nav-item nav-link active">Remove Products</a>
+                                    <a href="home.php?logout=1" class="nav-item nav-link active">Home</a>
+                                    <a href="#addProduct" class="nav-item nav-link active">Add Products</a>
+                                    <a href="AdminProfile.php" class="nav-item nav-link active">Products List</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="home.php?logout='1'" class="nav-item nav-link active">Logout </a>
@@ -118,7 +118,7 @@
                     <div style="height: 26px"></div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" id="addProduct">
                 <div class="row">
                     <div class="col-4 offset-md-4 form-div">
                         <div class="col-lg-30">
@@ -129,30 +129,30 @@
 
                                     <div class="form-group">
                                         <label for="profileImage">Product Image</label>
-                                        <input cols="43" type="file" name="profileImage" id="profileImage" class="form-control">
+                                        <input cols="43" type="file" name="productImage" id="profileImage" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="Category">Product Category</label>
-                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                        <label for="Category">Product Name</label>
+                                        <textarea name="productName" id="" cols="36" rows="2"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Quantity">Product Quantity</label>
-                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                        <label for="Quantity">Product Category</label>
+                                        <textarea name="productCategory" id="" cols="36" rows="2"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Price">Product Price</label>
-                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                        <label for="Price">Product Quantity</label>
+                                        <textarea name="productQuantity" id="" cols="36" rows="2"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="img_dir">Image Directory</label>
-                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                        <label for="img_dir">Product Price</label>
+                                        <textarea name="productPrice" id="" cols="36" rows="2"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="Details">Product Details</label>
-                                        <textarea name="" id="" cols="36" rows="2"></textarea>
+                                        <textarea name="productDetails" id="" cols="36" rows="2"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" name="register" class="btn btn-primary btn-block">ADD</button>
+                                        <button type="submit" name="save" class="btn btn-primary btn-block">ADD</button>
                                     </div>
                                 </form>
                             </div>

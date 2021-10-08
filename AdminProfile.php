@@ -1,3 +1,5 @@
+<?php include('SimplyBuyServer.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,12 +48,12 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
-                                    <a href="AdminProfile.php" class="nav-item nav-link active">Home</a>
+                                    <a href="home.php" class="nav-item nav-link active">Home</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Add Products</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Remove Products</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
-                                    <a href="#" class="nav-item nav-link active">Logout </a>
+                                    <a href="home.php?logout='1'" class="nav-item nav-link active">Logout </a>
                                 </div>
                             </div>
                         </div>
@@ -60,12 +62,25 @@
             </body>
 
             </html>
+
+    <?php
+
+        $dbCon = mysqli_connect('localhost','root', '', 'registration');
+        if(mysqli_connect_errno()){
+            echo 'could not connect to server.';
+        }
+        $name = $_SESSION["username"];
+        $sql = "SELECT * From admin WHERE Name = '$name';" ;
+        $result = mysqli_query($dbCon,$sql) or die("Error in $sql");
+        $row = mysqli_fetch_assoc($result);
+
+    ?>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card shadow-sm">
                         <div class="card-header bg-transparent text-center">
-                            <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
-                            <h3>User Name</h3>
+                            <?php echo "<img class='profile_img' src = '{$row['img_dir']}' width = 50% >"; ?>
+                            <h3><?php echo $row['Name']; ?></h3>
                         </div>
                     </div>
                 </div>
@@ -77,24 +92,24 @@
                         <div class="card-body pt-0">
                             <table class="table table-bordered">
                                 <tr>
-                                    <th width="30%">Full Name</th>
+                                    <th width="30%">Name</th>
                                     <td width="2%">:</td>
-                                    <td>Md. Sadman Sakib</td>
+                                    <td><?php echo $row['Name']; ?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">Email</th>
                                     <td width="2%">:</td>
-                                    <td>sakibiut19@gmailcom</td>
+                                    <td><?php echo $row['Email']; ?></td>
                                 </tr>
                                 <tr>
                                     <th width="30%">Phone</th>
                                     <td width="2%">:</td>
-                                    <td>01315339865</td>
+                                    <td><?php echo $row['PhoneNumber']; ?></td>
                                 </tr>
                                 <tr>
-                                    <th width="30%">Adress</th>
+                                    <th width="30%">Location</th>
                                     <td width="2%">:</td>
-                                    <td>Rajshahi, Bangladesh</td>
+                                    <td><?php echo $row['Address']; ?></td>
                                 </tr>
                             </table>
                         </div>

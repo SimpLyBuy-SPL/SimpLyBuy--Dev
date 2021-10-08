@@ -79,27 +79,27 @@
 			<div class="SmallContainer">
 				<div class="Row">
 					<div class="FiveColumn">
-						<a href="ElectronicDevices.php">
+						<a href="ElectronicDevices.php?sort=default">
 		         			<img src="Images/ElectronicDevice.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="HomeApplience.php">
+						<a href="HomeApplience.php?sort=default">
 		         			<img src="Images/HomeApplience.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="FashionProduct.php">
+						<a href="FashionProduct.php?sort=default">
 		         			<img src="Images/Fashion.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="MedicineProduct.php">
+						<a href="MedicineProduct.php?sort=default">
 		         			<img src="Images/HealthCare.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="SportProduct.php">
+						<a href="SportProduct.php?sort=default">
 		         			<img src="Images/Sports.jpg ">
 		     			</a>
 					</div>
@@ -133,37 +133,38 @@
 	            while ($row = mysqli_fetch_assoc($result)):
 	        	?>
 				<div class="ThreeColumn">
-					<?php echo "<img src = '{$row['img_dir']}'>"; ?>
-					<h4>
-	                    <?php echo $row['ProductName'] ;?>            
-	                </h4>
-					<div class="rating">
-						<?php
-							$rating = $row['Rating'];
-						?>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<?php
-							
-							if($rating == 5):
-						?>
-						<i class="fa fa-star"></i>
-						<?php
-							elseif($rating == 4.5):
-						?>
-						<i class="fa fa-star-half-o"></i>
-						<?php
-							else :
-						?>
-						<i class="fa fa-star-o"></i>
-						<?php
-							endif;
-						?>
-					</div>
-					<p><?php echo 'Price: '.$row['Price'] ;?> </p>
-				</div>
+                    <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
+                    <?php echo "<img src = '{$row['img_dir']}'>"; ?>
+                    <h4>
+                        <?php echo $row['ProductName'] ;?>            
+                    </h4>
+                    <div class="rating">
+                        <?php
+                            $rating = $row['Rating'];
+                        ?>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <?php
+                            
+                            if($rating == 5):
+                        ?>
+                        <i class="fa fa-star"></i>
+                        <?php
+                            elseif($rating == 4.5):
+                        ?>
+                        <i class="fa fa-star-half-o"></i>
+                        <?php
+                            else :
+                        ?>
+                        <i class="fa fa-star-o"></i>
+                        <?php
+                            endif;
+                        ?>
+                    </div>
+                    <p><?php echo 'Price: '.$row['Price'] ;?> </p>
+                </div>
 
 		        <?php
 		                endwhile;
@@ -194,38 +195,39 @@
             if($resultCheck>0):
             while ($row = mysqli_fetch_assoc($result)):
         	?>
-			<div class="ThreeColumn">
-				<?php echo "<img src = '{$row['img_dir']}'>"; ?>
-				<h4>
-                    <?php echo $row['ProductName'] ;?>            
-                </h4>
-				<div class="rating">
-					<?php
-							$rating = $row['Rating'];
-						?>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<?php
-							
-							if($rating == 5):
-						?>
-						<i class="fa fa-star"></i>
-						<?php
-							elseif($rating == 4.5):
-						?>
-						<i class="fa fa-star-half-o"></i>
-						<?php
-							else :
-						?>
-						<i class="fa fa-star-o"></i>
-						<?php
-							endif;
-						?>
-				</div>
-				<p><?php echo 'Price: '.$row['Price'] ;?> </p>
-			</div>
+<div class="ThreeColumn">
+                    <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
+                    <?php echo "<img src = '{$row['img_dir']}'>"; ?>
+                    <h4>
+                        <?php echo $row['ProductName'] ;?>            
+                    </h4>
+                    <div class="rating">
+                        <?php
+                            $rating = $row['Rating'];
+                        ?>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <?php
+                            
+                            if($rating == 5):
+                        ?>
+                        <i class="fa fa-star"></i>
+                        <?php
+                            elseif($rating == 4.5):
+                        ?>
+                        <i class="fa fa-star-half-o"></i>
+                        <?php
+                            else :
+                        ?>
+                        <i class="fa fa-star-o"></i>
+                        <?php
+                            endif;
+                        ?>
+                    </div>
+                    <p><?php echo 'Price: '.$row['Price'] ;?> </p>
+                </div>
 
 	        <?php
 	                endwhile;

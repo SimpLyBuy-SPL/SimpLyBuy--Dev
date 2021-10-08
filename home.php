@@ -1,63 +1,61 @@
-<!--Connecting Server Verification System -->
-
 <?php include('SimplyBuyServer.php');  ?>
-
-<!--HTML with PHP Imbedded-->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<title>SimplyBuy</title>
+    <meta charset="utf-8">
+    <title>SimplyBuy</title>
 
-	<link rel="stylesheet" href="StyleSheet.css">
-	<link rel="stylesheet" href="style.css">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="StyleSheet.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
+
 <body>
-	<div class="Body">
+    <div class="Body">
+    <div class="Container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="Images/Logo.png" width="300px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="Products.php?sort=default">Products</a></li>
 
-		<div class="Dropdown">
-			<nav>
-				<img class="logo" src="Images/Logo.png">
+                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
+                            <li><a href="HomeApplience.php?sort=default">Home Appliences</a></li>
+                            <li><a href="FashionProduct.php?sort=default">Fashion & Clothing</a></li>
+                            <li><a href="MedicineProduct.php?sort=default">Health Care Products</a></li>
+                            <li><a href="SportProduct.php?sort=default">Sports</a></li>
+                        </ul>
+                        </li>
 
-				<ul>
-					<li><a href="home.php">Home</a></li>
-
-					<li><a href="Products.php?sort=default">Products</a></li>
-
-					<li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-						<ul>
-							<li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
-							<li><a href="HomeApplience.php?sort=default">Home Appliences</a></li>
-							<li><a href="FashionProduct.php?sort=default">Fashion & Clothing</a></li>
-							<li><a href="MedicineProduct.php?sort=default">Health Care</a></li>
-							<li><a href="SportProduct.php?sort=default">Sports</a></li>
-						</ul>
-					</li>
-
-					<li><a href="cart.php?user=<?php
+                        <li><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
                         ">My Cart</a></li>
-
-					<li><a href="#">About Us</a></li>
-					
-					<?php if(isset($_SESSION["username"])): ?>
-							<li><a href="UserProfile.php" style="color: blue">
-							<?php echo $_SESSION["username"] ; ?></a>
-							</li>
-							<li><a href="home.php?logout='1'"style="color">Log Out</a></li>
-						<?php else: ?>
-							<li><a href="Login.php">Login</a></li>
-					<?php endif ?>
-				</ul>
-			</nav>
-		</div>
+                        <li><a href="#info">About Us</a></li>
+                        <?php if (isset($_SESSION["username"])) : ?>
+                            <li><a href="" style="color: blue">
+                                    <?php echo $_SESSION["username"]; ?></a>
+                            </li>
+                            <li><a href="home.php?logout='1' style=" color">Log Out</a></li>
+                        <?php else : ?>
+                            <li><a href="Login.php">Login</a></li>
+                        <?php endif ?>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
 		<div class="Container">
@@ -79,27 +77,27 @@
 			<div class="SmallContainer">
 				<div class="Row">
 					<div class="FiveColumn">
-						<a href="ElectronicDevices.php">
+						<a href="ElectronicDevices.php?sort=default">
 		         			<img src="Images/ElectronicDevice.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="HomeApplience.php">
+						<a href="HomeApplience.php?sort=default">
 		         			<img src="Images/HomeApplience.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="FashionProduct.php">
+						<a href="FashionProduct.php?sort=default">
 		         			<img src="Images/Fashion.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="MedicineProduct.php">
+						<a href="MedicineProduct.php?sort=default">
 		         			<img src="Images/HealthCare.jpg ">
 		     			</a>
 					</div>
 					<div class="FiveColumn">
-						<a href="SportProduct.php">
+						<a href="SportProduct.php?sort=default">
 		         			<img src="Images/Sports.jpg ">
 		     			</a>
 					</div>
@@ -133,6 +131,7 @@
 	            while ($row = mysqli_fetch_assoc($result)):
 	        	?>
 				<div class="ThreeColumn">
+					<a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
 					<?php echo "<img src = '{$row['img_dir']}'>"; ?>
 					<h4>
 	                    <?php echo $row['ProductName'] ;?>            
@@ -146,18 +145,18 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<?php
-							
-							if($rating == 5):
-						?>
-						<i class="fa fa-star"></i>
-						<?php
-							elseif($rating == 4.5):
-						?>
-						<i class="fa fa-star-half-o"></i>
-						<?php
-							else :
-						?>
-						<i class="fa fa-star-o"></i>
+                    
+			                 	if($rating > 4.5):
+			                ?>
+			                <i class="fa fa-star"></i>
+			                <?php
+			                    elseif($rating > 4.3):
+			                ?>
+			                <i class="fa fa-star-half-o"></i>
+			                <?php
+			                    else :
+			                ?>
+			                <i class="fa fa-star-o"></i>
 						<?php
 							endif;
 						?>
@@ -195,6 +194,7 @@
             while ($row = mysqli_fetch_assoc($result)):
         	?>
 			<div class="ThreeColumn">
+				<a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
 				<?php echo "<img src = '{$row['img_dir']}'>"; ?>
 				<h4>
                     <?php echo $row['ProductName'] ;?>            
@@ -207,19 +207,19 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
-						<?php
-							
-							if($rating == 5):
-						?>
-						<i class="fa fa-star"></i>
-						<?php
-							elseif($rating == 4.5):
-						?>
-						<i class="fa fa-star-half-o"></i>
-						<?php
-							else :
-						?>
-						<i class="fa fa-star-o"></i>
+				<?php
+                    
+                    if($rating > 4.5):
+                ?>
+                <i class="fa fa-star"></i>
+                <?php
+                    elseif($rating > 4.3):
+                ?>
+                <i class="fa fa-star-half-o"></i>
+                <?php
+                    else :
+                ?>
+                <i class="fa fa-star-o"></i>
 						<?php
 							endif;
 						?>
@@ -254,56 +254,54 @@
 		</div>
 	</div>
 
+    <?php
+
+        $dbCon = mysqli_connect('localhost','root', '', 'registration');
+        if(mysqli_connect_errno()){
+            echo 'could not connect to server.';
+        }
+        $sql = "SELECT * From user ORDER BY SiteRating DESC LIMIT 4;" ;
+        $result = mysqli_query($dbCon,$sql) or die("Error in $sql");
+        $row = mysqli_fetch_assoc($result);
+
+    ?>
+
 	<div class="FeaturedReviews">
 		<div class="SmallContainer">
 			<div class="ContainerRow">
+
+			<?php 
+
+            $count = 1;
+
+            if($resultCheck>0):
+            while ($row = mysqli_fetch_assoc($result)):
+        	?>
+
 				<div class="ThreeColumn">
 					<i class="fa fa-quote-left"></i>
-					<p>Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p><?php echo $row['Reveiw'] ?></p>
+					<i class="fa fa-quote-right"></i>
 					<div class="rating">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
-						<img src="Images/DemoGirl.png">
-						<h3><p>User Name</p></h3>
+						<?php echo "<img class='profile_img' src = '{$row['img_dir']}' width = 50% >"; ?>
+						<h3><p><?php echo $row['UserName'] ?></p></h3>
 					</div>
 				</div>
-				<div class="ThreeColumn">
-					<i class="fa fa-quote-left"></i>
-					<p>Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<img src="Images/DemoBoy.jpg">
-						<h3><p>User Name</p></h3>
-					</div>
-				</div>
-				<div class="ThreeColumn">
-					<i class="fa fa-quote-left"></i>
-					<p>Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<img src="Images/DemoGirl.png">
-						<h3><p>User Name</p></h3>
-					</div>
-				</div>
-			</div>
+
+	        <?php
+	                endwhile;
+	            endif;
+	        ?>
+	    </div>
 		</div>
 	</div>	
 
-	<div class="Footer">
+	<div class="Footer" id="info">
 		<div class="Container">
 			<div class="Row">
 				<div class="FooterColumn">

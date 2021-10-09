@@ -16,9 +16,9 @@
 <body>
 <div class="Body">
     <div class="Container">
-                <nav class="container">	>
+                <nav class="container"> >
                     <ul>
-						<img class="logo-img" src="Images/Logo.png" style="margin-left: 20px;" height="50px" alt="SimpLyBuy">
+                        <img class="logo-img" src="Images/Logo.png" style="margin-left: 20px;" height="50px" alt="SimpLyBuy">
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php?sort=default">Products</a></li>
 
@@ -178,11 +178,21 @@
         </div>
     </div>
 
+
+    <?php if(isset($_SESSION["username"])): ?>
+
     <div>
-        <form action="FinalPage.php" method="POST">
-            <button type="submit" class ="Button" name="checkout" >Checkout</button>
-        </form>
+        <a href="CheckoutPage.php"><button class ="Button" name="checkout" >Checkout</button></a>
     </div>
+
+    <?php else:?>
+
+    <div>
+        <a href="Login.php"><button class ="Button" name="checkout" >Checkout</button></a>
+    </div>
+
+    <?php endif;?>
+
 
     <!-- Footer -->
 

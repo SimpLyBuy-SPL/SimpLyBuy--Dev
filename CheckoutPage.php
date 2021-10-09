@@ -1,5 +1,6 @@
 <?php include('SimplyBuyServer.php');  ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,8 +88,17 @@
                     ?>
 
                     <div class="order_total" style="border: black; border-width:1px; border-style:solid;">
-                        <h4><strong>Default Address :</strong></h4>
-                        <h4><?php echo $row['Address'];?></h4>
+                        <h4><strong>Delivery Location :</strong></h4>
+                        <h4><?php
+
+                                $deliverAddress = $row['Address'];
+                                if(!empty($_POST['deliverAddress'])){
+                                    $deliverAddress = $_POST['deliverAddress'];
+                                }
+                                echo $deliverAddress;
+                            ?>
+                            
+                        </h4>
                     </div>
                     <br>
                     <div class="shipping_card">
@@ -96,11 +106,19 @@
                             <label  >Change Delivery Location</label>
                             <input placeholder="Enter address" name="deliverAddress">
                             <div class="input-group">
-                                <button type="submit" name="placeOrder">Place Order</button>
-                                <?php if(isset($_POST['placeOrder'])){echo 'Thank You For Your Order.';} ?>
+                                <button type="submit" >Change</button>
                             </div>
                         </form>
                     </div>
+
+                    <br>
+
+                    <div class="proced_payment">
+                        <form method="post" action="FinalPage.php">
+                            <button type="submit" name="placeOrder"><h2>Place Order</h2></button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
             <div class="order_summary">
@@ -165,6 +183,11 @@
             </div>
         </div>
 
+        <div class="payment_details">
+
+        </div>
+
+
 
     <?php
 
@@ -179,11 +202,6 @@
             $sql = "SELECT * From user WHERE UserName = '$name';" ;
             $result = mysqli_query($dbCon,$sql) or die("Error in $sql");
             $row = mysqli_fetch_assoc($result);
-
-            $deliverAddress = $row['Address'];
-            if(!empty($_POST['deliverAddress'])){
-                $deliverAddress = $_POST['deliverAddress'];
-            }
 
             $customeID =  $row['ID'];
 

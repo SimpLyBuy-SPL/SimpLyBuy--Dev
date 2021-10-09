@@ -115,7 +115,9 @@
 
                     <div class="proced_payment">
                         <form method="post" action="FinalPage.php">
+                            <input type="hidden" name="deliverAddress" value="<?php echo $deliverAddress; ?>">
                             <button type="submit" name="placeOrder"><h2>Place Order</h2></button>
+
                         </form>
                     </div>
 
@@ -182,35 +184,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="payment_details">
-
-        </div>
-
-
-
-    <?php
-
-        if(isset($_POST['placeOrder'])){
-
-            $dbCon = mysqli_connect('localhost','root', '', 'registration');
-            if(mysqli_connect_errno()){
-                echo 'could not connect to server.';
-            }
-
-            $name = $_SESSION["username"];
-            $sql = "SELECT * From user WHERE UserName = '$name';" ;
-            $result = mysqli_query($dbCon,$sql) or die("Error in $sql");
-            $row = mysqli_fetch_assoc($result);
-
-            $customeID =  $row['ID'];
-
-            $sql = "INSERT INTO ordertable (CustomerID, ShipAddress , ShipDate , SumPrice) VALUES ('$customeID', '$deliverAddress', '$shipDate', '$amountToPay');" ;
-            $result = mysqli_query($dbCart,$sql);
-
-        }
-
-    ?>
 
 
 

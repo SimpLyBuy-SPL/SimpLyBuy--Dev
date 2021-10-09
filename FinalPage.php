@@ -22,11 +22,39 @@
                 $res = mysqli_query($dbCart,$sql);
             }
         }
-        $sql = "DELETE FROM `cart` WHERE `cart`.`UserName` = '$user';" ;
-        $result = mysqli_query($dbCart,$sql);
-
-        echo "Order Placed Successfully";
 
     }
+
+    if(isset($_POST['placeOrder'])){
+
+            $dbCon = mysqli_connect('localhost','root', '', 'registration');
+            if(mysqli_connect_errno()){
+                echo 'could not connect to server.';
+            }
+
+            $name = $_SESSION["username"];
+            $sql = "SELECT * From user WHERE UserName = '$name';" ;
+            $result = mysqli_query($dbCon,$sql) or die("Error in $sql");
+            $row = mysqli_fetch_assoc($result);
+
+            $customeID =  $row['ID'];
+            $deliverAddress = $_POST['deliverAddress'];
+            $shipDate = date('d-m-Y', strtotime('+1 week'));
+
+            $sql = "SELECT SUM(product.price*cart.CartQuantity) AS Total From product,cart WHERE product.ProductID = cart.CartProductID AND cart.UserName = '$user'" ;
+            $result = mysqli_query($dbCart,$sql);
+            $row = mysqli_fetch_assoc($result);
+            $total = $row['Total'];
+            $amountToPay = $total*1.05 ;
+
+            $sql = "INSERT INTO ordertable (CustomerID, ShipAddress , ShipDate , SumPrice) VALUES ('$customeID', '$deliverAddress', '$shipDate', '$amountToPay');" ;
+            $result = mysqli_query($dbCart,$sql);
+
+            $sql = "DELETE FROM `cart` WHERE `cart`.`UserName` = '$user';" ;
+            $result = mysqli_query($dbCart,$sql);
+
+            echo "Order Placed Successfully";
+
+        }
 
 ?>

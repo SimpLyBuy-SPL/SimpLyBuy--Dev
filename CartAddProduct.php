@@ -18,7 +18,7 @@
 		$user = $_GET['user'];
 
 
-		$sql = "INSERT INTO cart (UserName, CartProductID, CartQuantity) VALUES ('$user', '$id', '$count');" ;
+		$sql = "INSERT INTO cart (UserName, CartProductID, CartQuantity) VALUES ('$user', '$id', '$count') ON DUPLICATE KEY UPDATE CartQuantity = '$count';" ;
     	$result = mysqli_query($dbCart,$sql);
     	header("location:cart.php?user=$user");
 	}

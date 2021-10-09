@@ -16,9 +16,9 @@
 <body>
 <div class="Body">
     <div class="Container">
-                <nav class="container">	>
+                <nav class="container"> >
                     <ul>
-						<img class="logo-img" src="Images/Logo.png" style="margin-left: 20px;" height="50px" alt="SimpLyBuy">
+                        <img class="logo-img" src="Images/Logo.png" style="margin-left: 20px;" height="50px" alt="SimpLyBuy">
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php?sort=default">Products</a></li>
 
@@ -95,9 +95,36 @@
                 </div>
             </div>
             <div class="TwinColumn">
-                <p>Home / Product</p>
+                <p>Home / ProductDetails</p>
                 <h1><?php echo $row['ProductName']; ?></h1>
                 <h4>&#2547;<?php echo $row['Price']; ?></h4>
+
+                <div class="rating">
+                    <?php
+                        $rating = $row['Rating'];
+                    ?>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <?php
+                            
+                    if($rating > 4.5):
+                    ?>
+                    <i class="fa fa-star"></i>
+                    <?php
+                        elseif($rating > 4.3):
+                    ?>
+                    <i class="fa fa-star-half-o"></i>
+                    <?php
+                        else :
+                    ?>
+                    <i class="fa fa-star-o"></i>
+                    <?php
+                        endif;
+                    ?>
+                </div>
+
                 <select>
                     <option>Custom 1</option>
                     <option>Custom 2</option>
@@ -114,10 +141,31 @@
                     <button type="submit">Add To Cart</button>
                 </form>
 
-
+                <br>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
                 <p><?php echo $row['Details']; ?></p>
+
+                <br>
+
+    <?php 
+
+        if(isset($_SESSION["username"])):
+
+    ?>
+
+                <form method="post" action="UserRateProduct.php">
+                    <h3>Rate This Product 
+                    <input max="5" min="0" type="Number" name="rating">
+                    </h3>
+                    <input type="hidden" name="productID" value="<?php echo $row['ProductID'];?>" />
+                    <button class="Button" type="submit">Rate</button>
+                </form>
+
+    <?php endif; ?>
+
+
+
             </div>
         </div>
     </div>
@@ -130,7 +178,8 @@
         }
 
         $currentCategory = $row['Category'];
-        $sql = "SELECT * From product WHERE product.Category = '$currentCategory' ORDER BY Rating DESC;" ;
+        $currentID = $row['ProductID'];
+        $sql = "SELECT * From product WHERE product.Category = '$currentCategory'AND NOT ProductID = '$currentID' ORDER BY Rating DESC ;" ;
         $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
         $resultCheck = mysqli_num_rows($result);
     ?>
@@ -146,6 +195,7 @@
             while ($row = mysqli_fetch_assoc($result)):
         ?>
             <div class="ThreeColumn">
+                <a href="ProductDetails.php?ProductID=<?php echo $row['ProductID']?>">
                 <?php echo "<img src = '{$row['img_dir']}'>"; ?>
                 <h4>
                     <?php echo $row['ProductName'] ;?>            

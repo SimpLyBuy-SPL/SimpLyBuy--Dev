@@ -64,7 +64,7 @@ th:last-child{
     padding: 0;
 }
 
-.single-product .TwinColumn{
+.single-product .TwinColumn{    
     padding: 20px;
 }
 
@@ -104,4 +104,12 @@ input:focus{
 .small-img-col{
     flex-basis: 24;
     cursor: pointer;
+}
+
+.header{
+
+    width: 100%;
+    max-width: 100%;
+    padding: 0!important;
+
 }

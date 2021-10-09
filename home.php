@@ -9,19 +9,18 @@
 
     <link rel="stylesheet" href="StyleSheet.css">
     <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="AdminProfileStyleSheet.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
 <body>
+	<div>
     <div class="Body">
     <div class="Container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
-                </div>
                 <nav>
                     <ul>
+						<img class="logo-img" src="Images/Logo.png" style="margin-left: 20px;" height="50px" alt="SimpLyBuy">
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php?sort=default">Products</a></li>
 
@@ -51,8 +50,6 @@
                             <li><a href="Login.php">Login</a></li>
                         <?php endif ?>
                     </ul>
-                </nav>
-            </div>
         </div>
     </div>
     </div>
@@ -71,8 +68,7 @@
 					<img src="Images/HomeImageBG.jpg">
 				</div>
 			</div>
-    	</div>
-
+ 
 		<div id="TrendingCategories" class="Categories">  <!--Connect With Other web Pages-->
 			<div class="SmallContainer">
 				<div class="Row">
@@ -105,6 +101,7 @@
 			</div>
 		</div>
 
+
 		<?php 
 
 	        $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
@@ -116,7 +113,6 @@
 	        $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
 	        $resultCheck = mysqli_num_rows($result);
 	    ?>
-
 		<div class="SmallContainer">
 
 			<h2 class="Title">Featured Products</h2>
@@ -171,6 +167,7 @@
 			</div>
 
 		</div>
+		</div>
 
 	</div>
 
@@ -181,7 +178,8 @@
         $resultCheck = mysqli_num_rows($result);
     ?>
 
-	<div class="SmallContainer">
+<div class="Container">	
+<div class="SmallContainer">
 		<h2 class="Title">New Products</h2>
 
 		<div class="ThreeColumnRow">
@@ -234,12 +232,13 @@
 				
 		</div>
 	</div>
+	</div>
 
+	<div class="Container">
 	<div class="Body">
-		<div class="Container">
 			<div class="ContainerRow">
 				<div class="TwinColumn">
-					<img src="Images/DemoProductImage.jpg">
+					<a href=""><img src="Images/DemoProductImage.jpg"></a>
 				</div>
 				<div class="TwinColumn">
 					<p>Exclusively Available for Limited Time</p>
@@ -252,7 +251,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
     <?php
 
@@ -280,7 +278,7 @@
 
 				<div class="ThreeColumn">
 					<i class="fa fa-quote-left"></i>
-					<p><?php echo $row['Reveiw'] ?></p>
+					<p><?php echo $row['Review'] ?></p>
 					<i class="fa fa-quote-right"></i>
 					<div class="rating">
 						<i class="fa fa-star"></i>
@@ -299,10 +297,10 @@
 	        ?>
 	    </div>
 		</div>
+	</div>
 	</div>	
 
 	<div class="Footer" id="info">
-		<div class="Container">
 			<div class="Row">
 				<div class="FooterColumn">
 					<h3> Download Related Apps </h3>
@@ -329,8 +327,8 @@
 			</div>
 			<hr>
 			<p class="Copyright">Copyright 2021 - SimplyBuy</p>
-		</div>
 	</div>
+	
 
 </body>
 </html>

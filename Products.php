@@ -14,14 +14,11 @@
 </head>
 
 <body>
-    <div class="Body">
+<div class="Body">
     <div class="Container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
-                </div>
-                <nav>
+                <nav class="container">	>
                     <ul>
+						<img class="logo-img" src="Images/Logo.png" style="margin-left: 20px;" height="50px" alt="SimpLyBuy">
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php?sort=default">Products</a></li>
 
@@ -52,7 +49,6 @@
                         <?php endif ?>
                     </ul>
                 </nav>
-            </div>
         </div>
     </div>
     </div>
@@ -162,7 +158,6 @@
     <!-- Footer -->
 
     <div class="Footer" id="info">
-        <div class="Container">
             <div class="Row">
                 <div class="FooterColumn">
                     <h3> Download Related Apps </h3>
@@ -188,7 +183,6 @@
             </div>
             <hr>
             <p style="text-align: center;">Copyright &copy; 2021 - SimpLyBuy</p>
-        </div>
     </div>
 
 </body>

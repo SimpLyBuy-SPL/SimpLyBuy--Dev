@@ -14,23 +14,20 @@
 </head>
 
 <body>
-    <div class="Body">
+<div class="Body">
     <div class="Container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="Images/Logo.png" width="300px">
-                </div>
-                <nav>
+                <nav class="container">	>
                     <ul>
+						<img class="logo-img" src="Images/Logo.png" style="margin-left: 20px;" height="50px" alt="SimpLyBuy">
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php?sort=default">Products</a></li>
 
                         <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                         <ul>
                             <li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
-                            <li><a href="HomeApplience.ph?sort=default">Home Appliences</a></li>
+                            <li><a href="HomeApplience.php?sort=default">Home Appliences</a></li>
                             <li><a href="FashionProduct.php?sort=default">Fashion & Clothing</a></li>
-                            <li><a href="MedicineProduct.php?sort=default">Health Care</a></li>
+                            <li><a href="MedicineProduct.php?sort=default">Health Care Products</a></li>
                             <li><a href="SportProduct.php?sort=default">Sports</a></li>
                         </ul>
                         </li>
@@ -52,7 +49,6 @@
                         <?php endif ?>
                     </ul>
                 </nav>
-            </div>
         </div>
     </div>
     </div>
@@ -163,7 +159,6 @@ while ($row = mysqli_fetch_assoc($result)):
     <!-- Footer -->
 
     <div class="Footer" id="info">
-        <div class="Container">
             <div class="Row">
                 <div class="FooterColumn">
                     <h3> Download Related Apps </h3>
@@ -189,7 +184,6 @@ while ($row = mysqli_fetch_assoc($result)):
             </div>
             <hr>
             <p style="text-align: center;">Copyright &copy; 2021 - SimpLyBuy</p>
-        </div>
     </div>
 
 </body>

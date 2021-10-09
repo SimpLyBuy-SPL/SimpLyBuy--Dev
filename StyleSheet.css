@@ -69,12 +69,18 @@ a{
 p{
 	color:  #555;
 }
+
 .Container{
-	max-width: 1300px;
-	margin: auto;
-	padding-right: 25px;
-	padding-left: 25px;
+	width: 100%;
+    text-align: center;
+    background-color: lightblue;
 }
+
+.logo-img{
+	float: left;
+    margin: 10px 550px 15px 0px;
+}
+
 .Row{
 	height: 720px;
 	display: flex;
@@ -95,7 +101,10 @@ p{
 	line-height: 60px;
 	margin: 25px 0;
 }
+
 .Button{
+	text-align: center;
+	justify-content:center;
 	display:inline-block ;
 	background: #ff523b;
 	color: #fff;
@@ -104,6 +113,7 @@ p{
 	border-radius: 30px;
 	transition:background 0.5s ;
 }
+
 .Button:hover{
 	background: #0000ff;
 }

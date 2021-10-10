@@ -51,7 +51,7 @@
                                 <div class="navbar-nav">
                                     <a href="home.php?logout=1" class="nav-item nav-link active">Home</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Admin Profile</a>
-                                    <a href="#addProduct" class="nav-item nav-link active">Add Products</a>
+                                    <a href="AdminAddProduct.php" class="nav-item nav-link active">Add Products</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Products List</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Placed Orders</a>
                                 </div>
@@ -93,23 +93,46 @@ else{
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">#</th>
-                        <th scope="col">#</th>
-                        <th scope="col">#</th>
+                        <th scope="col">ProductID</th>
+                        <th scope="col">ProductName</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Rating</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
+
+    <?php
+
+
+        $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+        if(mysqli_connect_errno()){
+            echo 'could not connect to server.';
+        }
+
+        $sql = "SELECT * From product;" ;
+        $result = mysqli_query($dbCart,$sql) or die("Error in $sql");
+        $resultCheck = mysqli_num_rows($result);
+
+        if($resultCheck>0):
+        while ($row = mysqli_fetch_assoc($result)):
+
+    ?>
                 <tbody>
                     <tr>
-                        <th></th>
-                        <td></td>
-                        <td>rrrrrfffffffffffffffffffffffffffff</td>
-                        <td>4</td>
-                        <td><button type="button" class="btn btn-danger">Delete</button>
+                        <th><?php echo $row['ProductID']; ?></th>
+                        <td><?php echo $row['ProductName']; ?></td>
+                        <td><?php echo $row['Quantity']; ?></td>
+                        <td><?php echo $row['Rating']; ?></td>
+                        <td><a href="AdminDeleteProduct.php?deleteID=<?php echo $row['ProductID']; ?>"><button type="button" class="btn btn-danger">Delete</button></a>
                         </td>
                     </tr>
                 </tbody>
+
+                <?php
+                        endwhile;
+                    endif;
+                ?>
+
             </table> 
              <div class="link-right">
                 <a href=""></a>

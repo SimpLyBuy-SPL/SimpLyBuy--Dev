@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="Register.css">
 </head>
 <body>
+	
 	<div class="Header">
 		<h2>Login</h2>
 	</div>
@@ -29,5 +30,6 @@
 			Not a Member? <a href="Register.php">Register Now!</a>
 		</p>
 	</form>
+	
 </body>
 </html>

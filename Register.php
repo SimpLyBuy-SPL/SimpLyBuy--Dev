@@ -25,6 +25,14 @@
 			<label>Email</label>
 			<input type="text" name="email">
 		</div>
+			<div class="input-group">
+			<label>Phone Number</label>
+			<input type="text" name="phone">
+		</div>
+			<div class="input-group">
+			<label>Address</label>
+			<input type="text" name="address">
+		</div>
 		<div class="input-group">
 			<label>Password</label>
 			<input type="password" name="pass1">

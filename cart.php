@@ -1,5 +1,6 @@
 <?php include('SimplyBuyServer.php');  ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -179,13 +180,26 @@
     </div>
 
 
-    <?php if(isset($_SESSION["username"])): ?>
+    <?php 
+
+        if(isset($_SESSION["username"]) && $resultCheck>0): 
+    ?>
 
     <div>
         <a href="CheckoutPage.php"><button class ="Button" name="checkout" >Checkout</button></a>
     </div>
 
-    <?php else:?>
+    <?php endif;?>
+
+    <?php if(isset($_SESSION["username"]) && $resultCheck==0):?>
+
+    <div>
+        <a href="Products.php?sort=default"><button class ="Button" name="checkout" >Checkout</button></a>
+    </div>
+
+    <?php endif; ?>
+
+    <?php if(!isset($_SESSION['username'])): ?>
 
     <div>
         <a href="Login.php"><button class ="Button" name="checkout" >Checkout</button></a>

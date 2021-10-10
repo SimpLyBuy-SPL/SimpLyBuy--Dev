@@ -49,8 +49,6 @@
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
                                     <a href="home.php" class="nav-item nav-link active">Home</a>
-                                    <!-- <a href="AdminProfile.php" class="nav-item nav-link active">Add Products</a>
-                                    <a href="AdminProfile.php" class="nav-item nav-link active">Remove Products</a> -->
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="home.php?logout='1'" class="nav-item nav-link active">Logout </a>
@@ -82,6 +80,11 @@
                         <div class="card-header bg-transparent text-center">
                             <?php echo "<img class='profile_img' src = '{$row['img_dir']}' width = 50% >"; ?>
                             <h3><?php echo $row['UserName']; ?></h3>
+                            <form method="post" action="addProfileImage.php" enctype="multipart/form-data">
+                                <input cols="43" type="file" name="image" class="form-control">
+                                <br>
+                                <button type="submit" name="setUserImage">Upload Profile Image</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -118,6 +121,8 @@
                     <div style="height: 26px"></div>
                 </div>
             </div>
+
+            <br><br>
 
             <div class= "col-lg-8">
                 <div class="card shadow-sm">

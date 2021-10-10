@@ -26,7 +26,7 @@
                         <li><a href="home.php">Home</a></li>
                         <li><a href="Products.php?sort=default">Products</a></li>
 
-                        <li><a href="">Categories <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <li><a href="">Categories<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                             <ul>
                                 <li><a href="ElectronicDevices.php?sort=default">Electronic Devices</a></li>
                                 <li><a href="HomeApplience.php?sort=default">Home Appliences</a></li>
@@ -145,14 +145,14 @@
                     <div>
                         Shipping and additional costs are calculated based on <?php echo $resultCheck; ?> product that you have added to cart.
                     </div>
-                    <br><br><br><br>
+                    <br><br><br>
                     <div class="proced_payment">
-                        <a href="cart.php?user=<?php
+                        <button><a href="cart.php?user=<?php
                                 if (isset($_SESSION["username"])){
                                     echo $_SESSION["username"];
                                 }
                             ?>
-                        ">Edit Cart</a>
+                        "><h3>Edit Cart</h3></a></button>
                     </div>
                     <br><br>
 

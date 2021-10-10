@@ -20,6 +20,12 @@
                 $quantity = $row['CartQuantity'];
                 $sql = "INSERT INTO orders (UserName, ProductID, Quantity) VALUES ('$user', '$productID', '$quantity')";
                 $res = mysqli_query($dbCart,$sql);
+                $sql = "SELECT Quantity From product WHERE ProductID = '$productID'";
+                $res = mysqli_query($dbCart,$sql);
+                $info = mysqli_fetch_assoc($res);
+                $updatedQuantity= $info['Quantity'] - $quantity;
+                $sql = "UPDATE product SET Quantity = '$updatedQuantity' WHERE product.ProductID = '$productID';";
+                $res = mysqli_query($dbCart,$sql);
             }
         }
 
@@ -52,6 +58,7 @@
 
             $sql = "DELETE FROM `cart` WHERE `cart`.`UserName` = '$user';" ;
             $result = mysqli_query($dbCart,$sql);
+            
 
             echo "Order Placed Successfully";
 

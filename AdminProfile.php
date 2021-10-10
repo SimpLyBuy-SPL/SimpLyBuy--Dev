@@ -18,74 +18,6 @@
 
     <link rel="stylesheet" href="AdminProfileStyleSheet.css">
 
-    <!-- Drop Down -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        .navbar a {
-            float: left;
-            font-size: 16px;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .dropdown {
-            float: left;
-            overflow: hidden;
-        }
-
-        .dropdown .dropbtn {
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-
-        .navbar a:hover,
-        .dropdown:hover .dropbtn {
-            background-color: red;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -100,7 +32,7 @@
                 <title>Bootstrap Navbar with Logo Image</title>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-                <link rel="stylesheet" href="css/bootstrap.css" />
+
                 <link rel="stylesheet" href="AdminProfileStyleSheet.css">
             </head>
 
@@ -117,7 +49,7 @@
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
                                     <a href="home.php?logout=1" class="nav-item nav-link active">Home</a>
-                                    <a href="AddProduct.php" class="nav-item nav-link active">Add Products</a>
+                                    <a href="AdminAddProduct.php" class="nav-item nav-link active">Add Products</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Products List</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Placed Orders</a>
                                 </div>
@@ -189,10 +121,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
 </body>
 
 </html>

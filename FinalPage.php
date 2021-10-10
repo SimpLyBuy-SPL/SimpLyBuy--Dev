@@ -60,7 +60,7 @@
             $result = mysqli_query($dbCart,$sql);
             
 
-            echo "Order Placed Successfully";
+            header('location:UserProfile.php');
 
         }
 

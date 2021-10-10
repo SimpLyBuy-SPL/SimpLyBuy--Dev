@@ -34,6 +34,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
                 <link rel="stylesheet" href="AdminProfileStyleSheet.css">
+                <link rel="stylesheet" href="ProductList.css">
             </head>
 
             <body>
@@ -83,7 +84,7 @@
                             <form method="post" action="addProfileImage.php" enctype="multipart/form-data">
                                 <input cols="43" type="file" name="image" class="form-control">
                                 <br>
-                                <button type="submit" name="setUserImage">Upload Profile Image</button>
+                                <button class="btn btn-primary btn-block" type="submit" name="setUserImage">Upload Profile Image</button>
                             </form>
                         </div>
                     </div>
@@ -124,6 +125,58 @@
 
             <br><br>
 
+<?php
+
+    $user =  $_SESSION['username'];
+
+    $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+    if(mysqli_connect_errno()){
+        echo 'could not connect to server.';
+    }
+
+    $sql = "SELECT * From orders,product WHERE orders.UserName = '$user' AND product.ProductID = orders.ProductID;" ;
+    $result = mysqli_query($dbCart,$sql);
+    $resultCheck = mysqli_num_rows($result);
+    if($resultCheck>0):
+?>
+
+    <div class="list">
+        <div class="box">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Ordered Product Name</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+
+    <?php
+
+        while ($row = mysqli_fetch_assoc($result)):
+
+    ?>
+                <tbody>
+                    <tr>
+                        <td><?php echo $row['ProductName']; ?></td>
+                        <td><?php echo $row['OrderQuantity']; ?></td>
+                    </tr>
+                </tbody>
+
+                <?php
+                        endwhile;
+                    endif;
+                ?>
+
+            </table> 
+             <div class="link-right">
+                <a href=""></a>
+             </div>
+        </div>
+    </div>
+
+
+            <br><br>
+
             <div class= "col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-header bg-transparent border-0">
@@ -139,7 +192,7 @@
                                     <td><input maxlength="255" size="70" type="text" name="feedback" placeholder="Enter Text Here(Max 255)"></td>
                                 </tr>
                             </table>
-                            <button>Submit</button>
+                            <button class="btn btn-primary btn-block">Submit</button>
                         </form>
                     </div>
                 </div>

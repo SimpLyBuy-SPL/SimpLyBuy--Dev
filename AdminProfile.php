@@ -18,6 +18,74 @@
 
     <link rel="stylesheet" href="AdminProfileStyleSheet.css">
 
+    <!-- Drop Down -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -32,7 +100,7 @@
                 <title>Bootstrap Navbar with Logo Image</title>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+                <link rel="stylesheet" href="css/bootstrap.css" />
                 <link rel="stylesheet" href="AdminProfileStyleSheet.css">
             </head>
 
@@ -49,8 +117,9 @@
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
                                     <a href="home.php?logout=1" class="nav-item nav-link active">Home</a>
-                                    <a href="#addProduct" class="nav-item nav-link active">Add Products</a>
+                                    <a href="AddProduct.php" class="nav-item nav-link active">Add Products</a>
                                     <a href="AdminProfile.php" class="nav-item nav-link active">Products List</a>
+                                    <a href="AdminProfile.php" class="nav-item nav-link active">Placed Orders</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="home.php?logout='1'" class="nav-item nav-link active">Logout </a>
@@ -118,50 +187,12 @@
                     <div style="height: 26px"></div>
                 </div>
             </div>
-            <div class="container" id="addProduct">
-                <div class="row">
-                    <div class="col-4 offset-md-4 form-div">
-                        <div class="col-lg-30">
-                            <div class="card shadow-lg p-3 mb-10 bg-yellow rounded">
-                                <form action="AdminAddProduct.php" method="post" enctype="multipart/form-data">
-
-                                    <h3 class="text-center">Add Product</h3>
-
-                                    <div class="form-group">
-                                        <label for="profileImage">Product Image</label>
-                                        <input cols="43" type="file" name="productImage" id="profileImage" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Category">Product Name</label>
-                                        <textarea name="productName" id="" cols="36" rows="2"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Quantity">Product Category</label>
-                                        <textarea name="productCategory" id="" cols="36" rows="2"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Price">Product Quantity</label>
-                                        <textarea name="productQuantity" id="" cols="36" rows="2"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="img_dir">Product Price</label>
-                                        <textarea name="productPrice" id="" cols="36" rows="2"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Details">Product Details</label>
-                                        <textarea name="productDetails" id="" cols="36" rows="2"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" name="save" class="btn btn-primary btn-block">ADD</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
 </body>
 
 </html>

@@ -77,9 +77,9 @@
                             <div class="collapse navbar-collapse" id="navbarCollapse">
                                 <div class="navbar-nav">
                                     <a href="home.php?logout=1" class="nav-item nav-link active">Home</a>
-                                    <a href="#addProduct" class="nav-item nav-link active">Add Products</a>
-                                    <a href="AdminProfile.php" class="nav-item nav-link active">Products List</a>
-                                    <a href="AdminProfile.php" class="nav-item nav-link active">Placed Orders</a>
+                                    <a href="AdminProfile.php" class="nav-item nav-link active">Admin Profile</a>
+                                    <a href="ProductList.php" class="nav-item nav-link active">Products List</a>
+                                    <a href="PlaceOrder.php" class="nav-item nav-link active">Placed Orders</a>
                                 </div>
                                 <div class="navbar-nav ms-auto">
                                     <a href="home.php?logout='1'" class="nav-item nav-link active">Logout </a>

@@ -62,65 +62,64 @@
                 </div>
             </body>
 
-            </html>
+<?php
 
-            <?php
+    $dbCart = mysqli_connect('localhost','root', '', 'simplybuy');
+    if(mysqli_connect_errno()){
+        echo 'could not connect to server.';
+    }
 
-            $dbCon = mysqli_connect('localhost', 'root', '', 'registration');
-            if (mysqli_connect_errno()) {
-                echo 'could not connect to server.';
-            }
-            $name = $_SESSION["username"];
-            $sql = "SELECT * From admin WHERE Name = '$name';";
-            $result = mysqli_query($dbCon, $sql) or die("Error in $sql");
-            $row = mysqli_fetch_assoc($result);
+    $sql = "SELECT DISTINCT UserName From orders ;" ;
+    $result = mysqli_query($dbCart,$sql);
+    $resultCheck = mysqli_num_rows($result);
 
-            ?>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent text-center">
-                            <?php echo "<img class='profile_img' src = '{$row['img_dir']}' width = 50% >"; ?>
-                            <h3><?php echo $row['Name']; ?></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card shadow-lg">
-                        <div class="card-header bg-transparent border-0">
-                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Admin Info</h3>
-                        </div>
-                        <div class="card-body pt-0">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th width="30%">Name</th>
-                                    <td width="2%">:</td>
-                                    <td><?php echo $row['Name']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Email</th>
-                                    <td width="2%">:</td>
-                                    <td><?php echo $row['Email']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Phone</th>
-                                    <td width="2%">:</td>
-                                    <td><?php echo $row['PhoneNumber']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Location</th>
-                                    <td width="2%">:</td>
-                                    <td><?php echo $row['Address']; ?></td>
-                                </tr>
-                            </table>
+    if($resultCheck>0):
+        while ($row = mysqli_fetch_assoc($result)):
 
-                        </div>
-                    </div>
-                    <div style="height: 26px"></div>
-                </div>
-            </div>
+?>
+    <div class="list">
+        <div class="box">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">(ProductName) Orders From <?php $user = $row['UserName'] ;
+                        echo $user; ?></th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+
+<br>
+
+    <?php
+
+        $sqlX = "SELECT * From orders,product WHERE orders.UserName = '$user' AND product.ProductID = orders.ProductID;" ;
+        $resultX = mysqli_query($dbCart,$sqlX);
+        $resultCheckX = mysqli_num_rows($resultX);
+        while ($rowX = mysqli_fetch_assoc($resultX)):
+
+    ?>
+                <tbody>
+                    <tr>
+                        <td><?php echo $rowX['ProductName']; ?></td>
+                        <td><?php echo $rowX['OrderQuantity']; ?></td>
+                    </tr>
+                </tbody>
+
+    <?php endwhile; ?> 
+            </table>
         </div>
     </div>
-</body>
 
+<?php
+        endwhile;
+    endif;
+?>
+
+        </html>
+
+        </div>
+
+    </div>
+
+</body>
 </html>

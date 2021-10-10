@@ -1,0 +1,25 @@
+.list{
+    /* min-height: 100vh; */
+    display: flex;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.list form{
+    width: 600px;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0, 2), 0 6px 20px 0 rgba(0, 0, 0,.19);
+}
+
+.box{
+    width: 750px;
+}
+
+.list table{
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0, 2), 0 6px 20px 0 rgba(0, 0, 0,.19);    
+}
